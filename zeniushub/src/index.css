@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+/* Simple float up-down animation used for decorative symbols in footer */
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-up-down {
+  animation: floatUpDown 3s ease-in-out infinite;
+  opacity: 0.6;
+}
