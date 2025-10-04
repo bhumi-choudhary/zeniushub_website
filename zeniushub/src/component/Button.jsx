@@ -11,15 +11,14 @@ const Button = ({
         <button
             type={type}
             onClick={onClick}
-            className={`relative flex items-center justify-center rounded-xl text-black font-semibold text-lg
-        bg-white border-2 border-orange-400 group overflow-hidden
-        transition-all duration-500
+            className={`relative flex items-center justify-center rounded-md text-black font-semibold text-lg text-white
         ${variant === "normal"
-                    ? "w-48 h-14 px-6"
+                    ? "w-30 h-14 px-6 bg-[#FF4500] overflow-hidden"
                     : text
-                        ? "w-48 h-14 px-6"
-                        : "w-14 h-14 px-0"
-                }`}
+                        ? "w-48 h-14 px-6 bg-white border-2 border-[#FF4500]"
+                        : "w-14 h-14 px-0 bg-white border-2 border-[#FF4500]"
+                }
+        group`}
         >
             {/* Icon */}
             {icon && (
@@ -33,20 +32,19 @@ const Button = ({
 
             {/* Text */}
             {text && (
-                <span
-                    className={`relative z-10 transition-colors duration-300 group-hover:text-white`}
-                >
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                     {text}
                 </span>
             )}
 
-            {/* Overlay */}
+            {/* Overlay for normal button */}
             {variant === "normal" && (
-                <span className="absolute inset-0 bg-orange-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></span>
+                <span className="absolute inset-0 bg-[#001F54] scale-0 group-hover:scale-100 origin-bottom transition-transform duration-500 rounded-md z-0"></span>
             )}
 
+            {/* Back variant */}
             {variant === "back" && (
-                <span className="absolute left-0 top-0 w-0 h-full bg-orange-400 rounded-xl group-hover:w-full transition-all duration-500 z-0"></span>
+                <span className="absolute left-0 top-0 w-0 h-full bg-[#FF4500] rounded-md group-hover:w-full transition-all duration-500 z-0"></span>
             )}
         </button>
     );
