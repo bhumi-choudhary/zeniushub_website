@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PromoModal from '../component/PromoModal';
 
 const Homepage = () => {
+  const [showPromo, setShowPromo] = useState(true);
   return (
     <>
     
@@ -35,6 +37,9 @@ const Homepage = () => {
         Welcome to Zeniushub
       </h1>
     </div>
+      {showPromo && (
+        <PromoModal onClose={() => setShowPromo(false)} />
+      )}
     </>
   );
 };

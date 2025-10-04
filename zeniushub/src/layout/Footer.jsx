@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import deco from "../../public/Img/QR_code.png";
 import { MapPin, Mail, Phone } from "lucide-react";
 
@@ -34,12 +33,12 @@ export default function Footer() {
               <span className="w-6 h-1 bg-[#ff6a21] rounded"></span>
             </div>
             <ul className="list-disc list-inside space-y-3 text-gray-300">
-              <li><Link className="hover:text-white underline decoration-dotted underline-offset-4" to="/">Home</Link></li>
-              <li><Link className="hover:text-white underline decoration-dotted underline-offset-4" to="/About-Us">About Us</Link></li>
-              <li><Link className="hover:text-white underline decoration-dotted underline-offset-4" to="/Solutions">Solutions</Link></li>
-              <li><Link className="hover:text-white underline decoration-dotted underline-offset-4" to="/Our-Process">Our Process</Link></li>
-              <li><Link className="hover:text-white underline decoration-dotted underline-offset-4" to="/Clients">Clients</Link></li>
-              <li><Link className="hover:text-white underline decoration-dotted underline-offset-4" to="/Contact-us">Contact us</Link></li>
+              <li><a className="hover:text-white underline decoration-dotted underline-offset-4" href="/">Home</a></li>
+              <li><a className="hover:text-white underline decoration-dotted underline-offset-4" href="/About-Us">About Us</a></li>
+              <li><a className="hover:text-white underline decoration-dotted underline-offset-4" href="/Solutions">Solutions</a></li>
+              <li><a className="hover:text-white underline decoration-dotted underline-offset-4" href="/Our-Process">Our Process</a></li>
+              <li><a className="hover:text-white underline decoration-dotted underline-offset-4" href="/Clients">Clients</a></li>
+              <li><a className="hover:text-white underline decoration-dotted underline-offset-4" href="/Contact-us">Contact us</a></li>
             </ul>
           </div>
 
@@ -94,8 +93,8 @@ export default function Footer() {
               © {new Date().getFullYear()} <span className="text-[#ff6a21]">Zeniushub Web, Powered by Zeniushub Technologies</span> All Rights Reserved.
             </div>
             <div className="flex items-center gap-6 text-gray-300">
-              <Link to="/Privacy-Policy" className="hover:text-white">Privacy Policy</Link>
-              <Link to="/Terms-Condition" className="hover:text-white">Terms & Condition</Link>
+              <a href="/Privacy-Policy" className="hover:text-white">Privacy Policy</a>
+              <a href="/Terms-Condition" className="hover:text-white">Terms & Condition</a>
             </div>
           </div>
         </div>
