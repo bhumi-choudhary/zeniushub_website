@@ -69,3 +69,34 @@ html {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* Simple reveal/fade-up animation for sections */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  animation: fadeUp 600ms ease both;
+}
+
+.reveal-delay-1 { animation-delay: 80ms; }
+.reveal-delay-2 { animation-delay: 160ms; }
+.reveal-delay-3 { animation-delay: 240ms; }
+.reveal-delay-4 { animation-delay: 320ms; }
+
+/* Animated subtle gradient background */
+.animated-gradient {
+  background: linear-gradient(120deg, rgba(255,106,33,0.08), rgba(255,106,33,0.02), rgba(255,106,33,0.06));
+  background-size: 200% 200%;
+  animation: gradientMove 16s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Section spacing helper */
+.section-spacing { margin-top: 2.5rem; margin-bottom: 2.5rem; }

@@ -14,6 +14,9 @@ import PrivacyPolicy from "./pages/Privacy-Policy";
 import TermsCondition from "./pages/Terms-&-Condition";
 
 import About from "./pages/About-us-child/About-Us";
+import WhoWeAre from "./pages/About-us-child/Who-We-Are";
+import WhatWeDo from "./pages/About-us-child/What-We-Do";
+import WhyChooseUs from "./pages/About-us-child/Why-Choose-Us";
 import Support from "./pages/Support";
 import Talk from "./pages/Talk-To-Us";
 import How from "./pages/How-To-Use";
@@ -29,6 +32,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/About-Us" element={<About />} />
+        <Route path="/About-Us/Who-We-Are" element={<WhoWeAre />} />
+        <Route path="/About-Us/What-We-Do" element={<WhatWeDo />} />
+        <Route path="/About-Us/Why-Choose-Us" element={<WhyChooseUs />} />
         <Route path="/Solutions" element={<Solutions />} />
         <Route path="/Our-Process" element={<OurProcess />} />
         <Route path="/Clients" element={<Clients />} />

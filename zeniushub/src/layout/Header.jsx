@@ -14,14 +14,18 @@ import gsap from 'gsap';
 import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home', 'About', 'Our-Process', 'Pricing', 'Our-Client', 'Contact-Us'];
-const aboutDropdown = ['Who We Are', 'What We Do', 'Why Choose Us'];
+const aboutDropdown = [
+    { label: 'Who We Are', to: '/About-Us/Who-We-Are' },
+    { label: 'What We Do', to: '/About-Us/What-We-Do' },
+    { label: 'Why Choose Us', to: '/About-Us/Why-Choose-Us' }
+];
 
 const pageroute = {
-    Home: '/',
-    About: '/About-Us',
+    'Home': '/',
+    'About': '/About-Us',
     'Our-Process': '/Our-Process',
-    Pricing: '/Solutions',
-    'Our-Client': '/client',
+    'Pricing': '/Solutions',
+    'Our-Client': '/Clients',
     'Contact-Us': '/Contact-us'
 };
 
@@ -29,7 +33,7 @@ const Header = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [aboutOpen, setAboutOpen] = useState(false);
     const [hoverAbout, setHoverAbout] = useState(false);
-    const [scrolled, setScrolled] = useState(false); // ✅ track scroll
+    const [scrolled, setScrolled] = useState(false); 
     const drawerRef = useRef(null);
     const listItemRefs = useRef([]);
     const navigate = useNavigate();
@@ -70,10 +74,11 @@ const Header = () => {
         <AppBar
             position="fixed"
             sx={{
-                backgroundColor: scrolled ? 'white' : 'rgba(0, 123, 255, 0.09)', // blue with transparency at top
-                color: scrolled ? 'black' : 'white',
-                backdropFilter: scrolled ? 'none' : 'blur(10px)', // blur at top
+                backgroundColor: scrolled ? 'white' : 'rgba(255,255,255,0.55)',
+                color: 'black',
+                backdropFilter: scrolled ? 'none' : 'saturate(180%) blur(12px)',
                 boxShadow: scrolled ? '0 8px 20px rgba(0,0,0,0.1)' : 'none',
+                borderBottom: scrolled ? '1px solid rgba(0,0,0,0.06)' : '1px solid rgba(255,255,255,0.25)',
                 transition: 'all 0.3s ease',
                 height: { xs: '10vh', md: '12vh' },
                 display: 'flex',
@@ -87,13 +92,14 @@ const Header = () => {
                     {/* Logo */}
                     <Typography
                         variant="h6"
-                        component="a"
-                        href="#"
+                        component="div"
+                        onClick={() => navigate(pageroute['Home'])}
                         sx={{
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.2rem',
-                            color: scrolled ? 'black' : 'white',
+                            color: 'black',
+                            cursor: 'pointer',
                             textDecoration: 'none',
                             fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
                         }}
@@ -101,11 +107,11 @@ const Header = () => {
                         Zeniushub
                     </Typography>
 
-                    {/* Desktop Nav */}
+                    {/* Desktop Nav (only from lg and up) */}
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: { xs: 'none', md: 'flex' },
+                            display: { xs: 'none', lg: 'flex' },
                             justifyContent: 'center',
                             gap: { md: 5, lg: 8 },
                             alignItems: 'center',
@@ -119,17 +125,28 @@ const Header = () => {
                                     onMouseEnter={() => setHoverAbout(true)}
                                     onMouseLeave={() => setHoverAbout(false)}
                                 >
-                                    <Typography
-                                        sx={{
-                                            fontWeight: 500,
-                                            cursor: 'pointer',
-                                            color: scrolled ? 'black' : 'white',
-                                            '&:hover': { color: 'orangered' },
-                                        }}
-                                        onClick={() => navigate(pageroute[page])}
-                                    >
-                                        {page}
-                                    </Typography>
+                                    <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1 }}>
+                                        <Typography
+                                            sx={{
+                                                fontWeight: 500,
+                                                cursor: 'pointer',
+                                                color: 'black',
+                                                '&:hover': { color: 'orangered' },
+                                            }}
+                                            onClick={() => navigate(pageroute[page])}
+                                        >
+                                            {page}
+                                        </Typography>
+                                        {/* plus/minus indicator on lg only */}
+                                        <IconButton
+                                            onClick={() => setHoverAbout((v) => !v)}
+                                            size="small"
+                                            sx={{ color: 'orangered', p: 0.5, display: { xs: 'none', lg: 'inline-flex' } }}
+                                            aria-label="toggle about menu"
+                                        >
+                                            {hoverAbout ? <Minus size={18} /> : <Plus size={18} />}
+                                        </IconButton>
+                                    </Box>
 
                                     {/* Dropdown */}
                                     <Box
@@ -141,7 +158,7 @@ const Header = () => {
                                             borderRadius: '10px',
                                             boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
                                             zIndex: 20,
-                                            minWidth: '180px',
+                                            minWidth: '220px',
                                             opacity: hoverAbout ? 1 : 0,
                                             visibility: hoverAbout ? 'visible' : 'hidden',
                                             transform: hoverAbout ? 'translateY(0)' : 'translateY(10px)',
@@ -151,7 +168,8 @@ const Header = () => {
                                     >
                                         {aboutDropdown.map((item) => (
                                             <Typography
-                                                key={item}
+                                                key={item.to}
+                                                onClick={() => navigate(item.to)}
                                                 sx={{
                                                     px: 2,
                                                     py: 1.2,
@@ -161,7 +179,7 @@ const Header = () => {
                                                     '&:hover': { backgroundColor: 'orangered', color: 'white' },
                                                 }}
                                             >
-                                                {item}
+                                                {item.label}
                                             </Typography>
                                         ))}
                                     </Box>
@@ -172,7 +190,7 @@ const Header = () => {
                                     onClick={() => navigate(pageroute[page])}
                                     sx={{
                                         fontWeight: 500,
-                                        color: scrolled ? 'black' : 'white',
+                                        color: 'black',
                                         position: 'relative',
                                         cursor: 'pointer',
                                         '&:hover': {
@@ -197,14 +215,14 @@ const Header = () => {
 
                     {/* Login / Menu */}
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                        <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
                             <Button text="Login" variant="normal" />
                         </Box>
                         <IconButton
                             onClick={toggleDrawer(true)}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
-                                color: scrolled ? 'black' : 'white',
+                                display: { xs: 'block', md: 'block', lg: 'none' },
+                                color: 'black',
                             }}
                         >
                             <Menu />
@@ -213,7 +231,119 @@ const Header = () => {
                 </Toolbar>
             </Container>
 
-            {/* Drawer code remains same */}
+            {/* Drawer (Mobile) */}
+            <Drawer
+                anchor="left"
+                open={drawerOpen}
+                onClose={toggleDrawer(false)}
+                PaperProps={{
+                    sx: {
+                        width: { xs: 270, sm: 300 },
+                        background: 'linear-gradient(135deg, #fff8f3, #ffe4d3)',
+                        borderRight: '4px solid orangered',
+                        borderTopRightRadius: '20px',
+                        borderBottomRightRadius: '20px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        overflow: 'hidden',
+                    },
+                }}
+            >
+                <Box ref={drawerRef} sx={{ p: 3 }}>
+                    {/* Header inside Drawer */}
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+                        <Typography sx={{ fontWeight: 700, fontSize: '1.3rem', color: 'black' }}>Zeniushub</Typography>
+                        <IconButton onClick={toggleDrawer(false)} sx={{ color: 'orangered' }}>
+                            <X />
+                        </IconButton>
+                    </Box>
+
+                    {/* Menu Items */}
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                        {pages.map((page, i) =>
+                            page === 'About' ? (
+                                <Box key={page}>
+                                    <Box
+                                        ref={(el) => (listItemRefs.current[i] = el)}
+                                        sx={{
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            py: 1.2,
+                                            px: 1.5,
+                                            gap: 1,
+                                            minHeight: 48,
+                                            borderRadius: '10px',
+                                            borderBottom: '1px solid rgba(0,0,0,0.06)',
+                                            '&:hover': { backgroundColor: 'rgba(255,68,0,0.08)' },
+                                        }}
+                                    >
+                                        <Typography sx={{ fontWeight: 600, color: 'black' }}>{page}</Typography>
+                                        <IconButton
+                                            onClick={() => setAboutOpen(!aboutOpen)}
+                                            sx={{ color: 'orangered', p: 0.5 }}
+                                            size="small"
+                                        >
+                                            {aboutOpen ? <Minus size={18} /> : <Plus size={18} />}
+                                        </IconButton>
+                                    </Box>
+                                    {aboutOpen && (
+                                        <Box sx={{ pl: 2.5, mt: 0.5, display: 'flex', flexDirection: 'column' }}>
+                                            {aboutDropdown.map((item, idx) => (
+                                                <Typography
+                                                    key={item.to}
+                                                    onClick={() => { navigate(item.to); setDrawerOpen(false); }}
+                                                    sx={{
+                                                        fontWeight: 500,
+                                                        color: 'black',
+                                                        py: 0.9,
+                                                        px: 0.5,
+                                                        borderBottom: idx !== aboutDropdown.length - 1 ? '1px solid rgba(0,0,0,0.06)' : 'none',
+                                                        cursor: 'pointer',
+                                                        '&:hover': { color: 'orangered' },
+                                                    }}
+                                                >
+                                                    {item.label}
+                                                </Typography>
+                                            ))}
+                                        </Box>
+                                    )}
+                                </Box>
+                            ) : (
+                                <ListItem
+                                    key={page}
+                                    button
+                                    ref={(el) => (listItemRefs.current[i] = el)}
+                                    onClick={() => navigate(pageroute[page])}
+                                    sx={{
+                                        borderRadius: '10px',
+                                        px: 1.5,
+                                        minHeight: 48,
+                                        borderBottom: '1px solid rgba(0,0,0,0.06)',
+                                        '&:hover': {
+                                            backgroundColor: 'orangered',
+                                            '& .MuiListItemText-primary': { color: 'white' },
+                                        },
+                                    }}
+                                >
+                                    <ListItemText
+                                        primary={page}
+                                        primaryTypographyProps={{
+                                            fontWeight: 600,
+                                            color: 'black',
+                                        }}
+                                    />
+                                </ListItem>
+                            )
+                        )}
+                    </Box>
+
+                    {/* Login at bottom */}
+                    <Box sx={{ mt: 4 }}>
+                        <Button text="Login" variant="normal" />
+                    </Box>
+                </Box>
+            </Drawer>
         </AppBar>
     );
 };

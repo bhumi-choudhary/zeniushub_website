@@ -39,7 +39,7 @@ const Button = ({
 
             {/* Overlay for normal button */}
             {variant === "normal" && (
-                <span className="absolute inset-0 bg-[#001F54] scale-0 group-hover:scale-100 origin-bottom transition-transform duration-500 rounded-md z-0"></span>
+                <span className="absolute  inset-0 bg-[#001F54] scale-0 group-hover:scale-100 origin-bottom transition-transform duration-500 rounded-md z-0"></span>
             )}
 
             {/* Back variant */}
