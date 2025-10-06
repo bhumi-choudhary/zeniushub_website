@@ -216,7 +216,7 @@ const Header = () => {
                     {/* Login / Menu */}
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                         <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-                            <Button text="Login" variant="normal" />
+                            <Button text="Login" classname='text-black' variant="normal" />
                         </Box>
                         <IconButton
                             onClick={toggleDrawer(true)}
@@ -340,7 +340,7 @@ const Header = () => {
 
                     {/* Login at bottom */}
                     <Box sx={{ mt: 4 }}>
-                        <Button text="Login" variant="normal" />
+                        <Button text="Login" classname="text-white" variant="normal" />
                     </Box>
                 </Box>
             </Drawer>
