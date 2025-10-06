@@ -18,7 +18,7 @@ const aboutDropdown = ['Who We Are', 'What We Do', 'Why Choose Us'];
 
 const pageroute = {
     Home: '/',
-    About: '/About-us',
+    About: '/About-Us',
     'Our-Process': '/Our-Process',
     Pricing: '/Solutions',
     'Our-Client': '/client',
