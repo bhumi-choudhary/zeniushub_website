@@ -17,7 +17,10 @@ import {
     Mail,
     Phone,
     ToggleLeftIcon,
-    List
+    List,
+    BookOpen,
+    ClipboardCheck,
+    GraduationCap
 } from "lucide-react";
 
 // Wrapper function to add default props like size & className
@@ -43,4 +46,7 @@ export const ICONS = {
     mail: createIcon(Mail, { size: 24, className: "text-black" }),
     list: createIcon(List, { size: 24, className: "text-black" }),
     x: createIcon(X, { size: 24, className: "text-black" }),
+    bookopen: createIcon(BookOpen, { size: 24, className: "text-black" }),
+    clipboardcheck: createIcon(ClipboardCheck, { size: 24, className: "text-black" }),
+    graduatecap: createIcon(GraduationCap, { size: 24, className: "text-black" }),
 };

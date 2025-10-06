@@ -31,7 +31,7 @@ export default function PageHero({ title, trail }) {
       <div className="absolute -left-20 -top-24 w-72 h-72 rounded-full border-[8px] border-white/30 opacity-60" />
       <div className="absolute -right-12 top-6 w-80 h-80 rounded-full border-[8px] border-white/20 opacity-60" />
 
-      <div className="absolute right-6 bottom-8 grid grid-cols-6 gap-2 float-up-down" style={{animationDelay: '0.4s'}}>
+      <div className="absolute right-6 bottom-8 grid grid-cols-6 gap-2 float-up-down" style={{ animationDelay: '0.4s' }}>
         {Array.from({ length: 36 }).map((_, i) => (
           <span key={i} className="w-1.5 h-1.5 rounded-full bg-white/90 shadow-[0_0_6px_rgba(255,255,255,0.35)]" />
         ))}
