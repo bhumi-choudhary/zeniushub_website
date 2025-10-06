@@ -1,5 +1,5 @@
 import React from "react";
-import {Route,Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import Homepage from "./pages/Homepage";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
@@ -12,6 +12,7 @@ import Clients from "./pages/Clients";
 import Contactus from "./pages/Contact-us";
 import PrivacyPolicy from "./pages/Privacy-Policy";
 import TermsCondition from "./pages/Terms-&-Condition";
+import Client from "./pages/Client";
 
 
 const App = () => {
@@ -20,16 +21,17 @@ const App = () => {
   return (
     <>
       <Header />
-        <Routes>
+      <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/About-Us" element={<About />} />
-        <Route path="/Solutions" element={<Solutions/>} />
+        <Route path="/Solutions" element={<Solutions />} />
         <Route path="/Our-Process" element={<OurProcess />} />
         <Route path="/Clients" element={<Clients />} />
         <Route path="/Contact-us" element={<Contactus />} />
+        <Route path="/client" element={<Client />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
         <Route path="/Terms-Condition" element={<TermsCondition />} />
-        </Routes>
+      </Routes>
       <Footer />
       <WhatsAppFAB />
       <ScrollToTop />

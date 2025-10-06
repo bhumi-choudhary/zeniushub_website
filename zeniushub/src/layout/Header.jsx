@@ -12,17 +12,32 @@ import IconButton from '@mui/material/IconButton';
 import { Menu, X, Plus, Minus } from 'lucide-react';
 import gsap from 'gsap';
 import { ICONS } from '../component/Icons';
+import { useNavigate } from 'react-router-dom';
 
-const pages = ['Home', 'About', 'Our Process', 'Solution', 'Contact Us'];
+const pages = ['Home', 'About', ' Our-Process', 'Solution', 'Our-Client', 'Contact-Us'];
 const aboutDropdown = ['Who We Are', 'What We Do', 'Why Choose Us'];
+const pageroute = {
+    Home: '/',
+    About: '/About-us',
+    'Our-Process': '/Our-Process',
+    Solution: '/Solutions',
+    Solution: '/Solutions',
+    Client: '/client',
+    'Contact-Us': '/Contact-us'
 
+}
+// const aboutdroprouting = {
+//     'Who We Are': '/who-we-are',
+//     'What We Do': '/what-we-do',
+//     'Why Choose Us': '/why-choose-us',
+// }
 const Header = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [aboutOpen, setAboutOpen] = useState(false); // For mobile toggle
     const [hoverAbout, setHoverAbout] = useState(false); // For desktop hover
     const drawerRef = useRef(null);
     const listItemRefs = useRef([]);
-
+    const navigate = useNavigate()
     useEffect(() => {
         if (drawerOpen && drawerRef.current) {
             gsap.set(drawerRef.current, { x: 300, opacity: 0 });
@@ -47,13 +62,11 @@ const Header = () => {
 
             {/* Header */}
             <AppBar
-                position="relative"
+                position="fixed"
                 sx={{
-                    marginTop: '15px',
+                    paddingTop: '20px',
                     backgroundColor: 'white',
                     height: '12vh',
-                    borderTopLeftRadius: '60px',
-                    borderTopRightRadius: '60px',
                     boxShadow: '0 8px 20px rgba(0,0,0,0.1)',
                     paddingX: { xs: 2, md: 10 },
                 }}
@@ -134,7 +147,9 @@ const Header = () => {
                                                 fontWeight: 500,
                                                 cursor: 'pointer',
                                                 '&:hover': { color: 'orangered' },
+
                                             }}
+                                            onClick={() => navigate(pageroute[page])}
                                         >
                                             {page}
                                         </Typography>
