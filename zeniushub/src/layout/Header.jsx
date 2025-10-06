@@ -21,7 +21,7 @@ const pageroute = {
     About: '/About-Us',
     'Our-Process': '/Our-Process',
     Pricing: '/Solutions',
-    'Our-Client': '/client',
+    'Our-Client': '/Clients',
     'Contact-Us': '/Contact-us'
 };
 
