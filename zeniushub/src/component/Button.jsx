@@ -11,9 +11,9 @@ const Button = ({
         <button
             type={type}
             onClick={onClick}
-            className={`relative flex items-center justify-center rounded-md text-black font-semibold text-lg text-white
+            className={`relative flex items-center justify-center rounded-md text-black font-semibold text-md text-white
         ${variant === "normal"
-                    ? "w-30 h-14 px-6 bg-[#FF4500] overflow-hidden"
+                    ? "w-40 h-12 px-6 bg-[#FF4500] overflow-hidden"
                     : text
                         ? "w-48 h-14 px-6 bg-white border-2 border-[#FF4500]"
                         : "w-14 h-14 px-0 bg-white border-2 border-[#FF4500]"

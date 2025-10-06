@@ -50,7 +50,7 @@ export default function PageHero({ title, trail }) {
         <nav className="mt-4 text-center">
           {finalTrail.map((item, idx) => (
             <span key={item.to} className="text-gray-300">
-              {idx > 0 && <span className="mx-2 text-[#ff6a21]">›</span>}
+              {idx > 0 && <span className="mx-2 text-[#ffffff]">›</span>}
               {idx < finalTrail.length - 1 ? (
                 <Link to={item.to} className="hover:text-white">
                   {item.label}

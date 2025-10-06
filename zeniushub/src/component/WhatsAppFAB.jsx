@@ -1,7 +1,7 @@
 import React from "react";
 import { MessageCircle } from "lucide-react";
 
-export default function WhatsAppFAB({ phone = "+917877829435", message, className = "" }) {
+export default function WhatsAppFAB({ phone = "+919257479576", message, className = "" }) {
   const defaultMessage = `Hello! 👋
 I am interested in your School ERP & Portal.
 

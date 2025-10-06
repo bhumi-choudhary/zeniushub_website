@@ -5,14 +5,19 @@ import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import WhatsAppFAB from "./component/WhatsAppFAB";
 import ScrollToTop from "./component/ScrollToTop";
-import About from "./pages/About-Us";
+
 import Solutions from "./pages/Solutions";
 import OurProcess from "./pages/Our-Process";
 import Clients from "./pages/Clients";
 import Contactus from "./pages/Contact-us";
 import PrivacyPolicy from "./pages/Privacy-Policy";
 import TermsCondition from "./pages/Terms-&-Condition";
-import Client from "./pages/Client";
+
+import About from "./pages/About-us-child/About-Us";
+import Support from "./pages/Support";
+import Talk from "./pages/Talk-To-Us";
+import How from "./pages/How-To-Use";
+import HelpFeedback from "./pages/Help-Feedback";
 
 
 const App = () => {
@@ -28,9 +33,12 @@ const App = () => {
         <Route path="/Our-Process" element={<OurProcess />} />
         <Route path="/Clients" element={<Clients />} />
         <Route path="/Contact-us" element={<Contactus />} />
-        <Route path="/client" element={<Client />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
         <Route path="/Terms-Condition" element={<TermsCondition />} />
+        <Route path="/Support" element={<Support />} />
+        <Route path="/Talk-To-Us" element={<Talk />} />
+        <Route path="/How-To-Use" element={<How />} />
+        <Route path="/Help-Feedback" element={<HelpFeedback />} />
       </Routes>
       <Footer />
       <WhatsAppFAB />
