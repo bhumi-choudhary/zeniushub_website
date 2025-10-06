@@ -33,7 +33,11 @@ import {
     Sparkles,
     BookOpen,
     ClipboardCheck,
-    GraduationCap
+    GraduationCap,
+    ChartArea,
+    CircleCheckBig,
+    Box,
+    University
 } from "lucide-react";
 
 // Wrapper function to add default props like size & className
@@ -75,4 +79,8 @@ export const ICONS = {
     bookopen: createIcon(BookOpen, { size: 24, className: "text-black" }),
     clipboardcheck: createIcon(ClipboardCheck, { size: 24, className: "text-black" }),
     graduatecap: createIcon(GraduationCap, { size: 24, className: "text-black" }),
+    chart: createIcon(ChartArea, { size: 24, className: "text-black" }),
+    circlecheck: createIcon(CircleCheckBig, { size: 24, className: "text-black" }),
+    building: createIcon(University, { size: 24, className: "text-black" }),
+    cube: createIcon(Box, { size: 24, className: "text-black" }),
 };

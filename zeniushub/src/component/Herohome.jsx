@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Herohome.css";
-import ai_video from '../assets/video/ai_video.mp4'
-import heroimg from '../assets/images/hero_image.png'
+import ai_video from '../assets/video/ai_video.mp4';
+import heroimg from '../assets/images/hero_image.png';
+
 const HeroSection = () => {
     return (
         <section className="hero">
@@ -13,7 +14,7 @@ const HeroSection = () => {
                 loop
                 muted
                 playsInline
-                src={ai_video} // replace with your video link
+                src={ai_video}
             />
 
             {/* Animated background circles */}
@@ -50,8 +51,7 @@ const HeroSection = () => {
                         transition={{ delay: 0.3, duration: 1 }}
                     >
                         Zeniushub connects Students, Instructors, Admins, and Super Admins
-                        — creating a smart learning ecosystem where knowledge meets
-                        technology.
+                        — creating a smart learning ecosystem where knowledge meets technology.
                     </motion.p>
 
                     <motion.button
@@ -79,11 +79,11 @@ const HeroSection = () => {
                         alt="Education Portal"
                         animate={{ y: [0, -20, 0] }}
                         transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                        draggable={false}
                     />
                 </motion.div>
             </div>
         </section>
-
     );
 };
 
