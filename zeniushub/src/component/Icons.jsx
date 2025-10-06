@@ -30,7 +30,10 @@ import {
     Cpu,
     Globe,
     Clock,
-    Sparkles
+    Sparkles,
+    BookOpen,
+    ClipboardCheck,
+    GraduationCap
 } from "lucide-react";
 
 // Wrapper function to add default props like size & className
@@ -68,5 +71,8 @@ export const ICONS = {
     cpu: createIcon(Cpu, { size: 24, className: "text-black" }),
     globe: createIcon(Globe, { size: 24, className: "text-black" }),
     clock: createIcon(Clock, { size: 24, className: "text-black" }),
-    sparkles: createIcon(Sparkles, { size: 24, className: "text-black" })
+    sparkles: createIcon(Sparkles, { size: 24, className: "text-black" }),
+    bookopen: createIcon(BookOpen, { size: 24, className: "text-black" }),
+    clipboardcheck: createIcon(ClipboardCheck, { size: 24, className: "text-black" }),
+    graduatecap: createIcon(GraduationCap, { size: 24, className: "text-black" }),
 };
