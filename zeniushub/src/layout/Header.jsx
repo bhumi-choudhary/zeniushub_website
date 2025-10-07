@@ -231,7 +231,10 @@ const Header = () => {
                     {/* Login / Menu */}
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                         <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
-                            <Button text="Login" classname='text-black' variant="normal" />
+                        <Button text="Let's Discuss " variant='normal' classname='text-black' onClick={() => {
+          const ev = new Event('open-lead-form')
+          window.dispatchEvent(ev)
+        }} />
                         </Box>
                         <IconButton
                             onClick={toggleDrawer(true)}
@@ -362,7 +365,10 @@ const Header = () => {
 
                     {/* Login at bottom */}
                     <Box sx={{ mt: 4 }}>
-                        <Button text="Login" classname="text-white" variant="normal" />
+                        <Button text="Let's Discuss " variant='normal' classname='text-white' onClick={() => {
+          const ev = new Event('open-lead-form')
+          window.dispatchEvent(ev)
+        }} />
                     </Box>
                 </Box>
             </Drawer>

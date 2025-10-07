@@ -26,6 +26,7 @@ import Talk from "./pages/Talk-To-Us";
 
 import HelpFeedback from "./pages/Help-Feedback";
 import NoDataFound from "./pages/NoDataFound ";
+import Pricing from "./pages/Pricing";
 
 
 const App = () => {
@@ -72,7 +73,7 @@ const App = () => {
         <Route path="/Contact-us" element={<Contactus />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
         <Route path="/Terms-Condition" element={<TermsCondition />} />
-
+        <Route path="/Pricing" element={<Pricing />}/> 
         <Route path="/Talk-To-Us" element={<Talk />} />
 
         <Route path="/Help-Feedback" element={<HelpFeedback />} />
