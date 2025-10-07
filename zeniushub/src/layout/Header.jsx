@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
 import Button from '../component/Button';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
@@ -11,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import { Menu, X, Plus, Minus } from 'lucide-react';
 import gsap from 'gsap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const pages = ['Home', 'About', 'Our-Process', 'Pricing', 'Our-Client', 'Contact-Us'];
 const aboutDropdown = [
@@ -37,6 +38,13 @@ const Header = () => {
     const drawerRef = useRef(null);
     const listItemRefs = useRef([]);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const isActivePage = (page) => {
+        const route = pageroute[page];
+        if (page === 'About') return location.pathname.startsWith('/About-Us');
+        return location.pathname === route;
+    };
 
     // Scroll listener
     useEffect(() => {
@@ -128,9 +136,9 @@ const Header = () => {
                                     <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1 }}>
                                         <Typography
                                             sx={{
-                                                fontWeight: 500,
+                                                fontWeight: 600,
                                                 cursor: 'pointer',
-                                                color: 'black',
+                                                color: isActivePage(page) ? 'orangered' : 'black',
                                                 '&:hover': { color: 'orangered' },
                                             }}
                                             onClick={() => navigate(pageroute[page])}
@@ -173,9 +181,10 @@ const Header = () => {
                                                 sx={{
                                                     px: 2,
                                                     py: 1.2,
-                                                    color: 'black',
+                                                    color: location.pathname === item.to ? 'white' : 'black',
                                                     fontWeight: 500,
                                                     cursor: 'pointer',
+                                                    backgroundColor: location.pathname === item.to ? 'orangered' : 'transparent',
                                                     '&:hover': { backgroundColor: 'orangered', color: 'white' },
                                                 }}
                                             >
@@ -189,8 +198,8 @@ const Header = () => {
                                     key={page}
                                     onClick={() => navigate(pageroute[page])}
                                     sx={{
-                                        fontWeight: 500,
-                                        color: 'black',
+                                        fontWeight: 600,
+                                        color: isActivePage(page) ? 'orangered' : 'black',
                                         position: 'relative',
                                         cursor: 'pointer',
                                         '&:hover': {
@@ -204,6 +213,16 @@ const Header = () => {
                                                 left: 0,
                                                 backgroundColor: 'orangered',
                                             },
+                                        },
+                                        '&::after': {
+                                            content: isActivePage(page) ? '""' : '""',
+                                            position: 'absolute',
+                                            width: isActivePage(page) ? '100%' : 0,
+                                            height: '3px',
+                                            bottom: -5,
+                                            left: 0,
+                                            backgroundColor: 'orangered',
+                                            transition: 'width .2s ease',
                                         },
                                     }}
                                 >
@@ -278,7 +297,7 @@ const Header = () => {
                                             '&:hover': { backgroundColor: 'rgba(255,68,0,0.08)' },
                                         }}
                                     >
-                                        <Typography sx={{ fontWeight: 600, color: 'black' }}>{page}</Typography>
+                                        <Typography sx={{ fontWeight: 700, color: isActivePage('About') ? 'orangered' : 'black' }}>{page}</Typography>
                                         <IconButton
                                             onClick={() => setAboutOpen(!aboutOpen)}
                                             sx={{ color: 'orangered', p: 0.5 }}
@@ -310,29 +329,31 @@ const Header = () => {
                                     )}
                                 </Box>
                             ) : (
-                                <ListItem
-                                    key={page}
-                                    button
-                                    ref={(el) => (listItemRefs.current[i] = el)}
-                                    onClick={() => navigate(pageroute[page])}
-                                    sx={{
-                                        borderRadius: '10px',
-                                        px: 1.5,
-                                        minHeight: 48,
-                                        borderBottom: '1px solid rgba(0,0,0,0.06)',
-                                        '&:hover': {
-                                            backgroundColor: 'orangered',
-                                            '& .MuiListItemText-primary': { color: 'white' },
-                                        },
-                                    }}
-                                >
-                                    <ListItemText
-                                        primary={page}
-                                        primaryTypographyProps={{
-                                            fontWeight: 600,
-                                            color: 'black',
+                                <ListItem key={page} disablePadding ref={(el) => (listItemRefs.current[i] = el)} sx={{ borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+                                    <ListItemButton
+                                        onClick={() => navigate(pageroute[page])}
+                                        sx={{
+                                            borderRadius: '10px',
+                                            px: 1.5,
+                                            minHeight: 48,
+                                            '&:hover': {
+                                                backgroundColor: 'orangered',
+                                                '& .MuiListItemText-primary': { color: 'white' },
+                                            },
+                                            '&.Mui-selected': {
+                                                backgroundColor: 'rgba(255,68,0,0.08)',
+                                            },
                                         }}
-                                    />
+                                        selected={isActivePage(page)}
+                                    >
+                                        <ListItemText
+                                            primary={page}
+                                            primaryTypographyProps={{
+                                                fontWeight: 700,
+                                                color: isActivePage(page) ? 'orangered' : 'black',
+                                            }}
+                                        />
+                                    </ListItemButton>
                                 </ListItem>
                             )
                         )}

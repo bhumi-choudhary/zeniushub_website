@@ -35,7 +35,7 @@ html {
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #ff8a3a, #ff6a21);
   border-radius: 9999px;
-  border: 2px solid #ffe1cf; /* creates a gap for a softer look */
+  border: 2px solid #ffe1cf;
 }
 
 ::-webkit-scrollbar-thumb:hover {

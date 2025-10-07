@@ -1,7 +1,11 @@
 import React from 'react'
 import PageHero from '../../component/PageHero'
+import Button from '../../component/Button'
+import { ICONS } from '../../component/Icons'
+import { useNavigate } from 'react-router-dom'
 
 const WhatWeDo = () => {
+  const Navigate = useNavigate()
   const modules = [
     { title: 'Admissions & Onboarding', desc: 'Digital forms, approvals, document capture, status tracking.' },
     { title: 'Attendance & Academics', desc: 'QR/biometric attendance, timetable, assessments, results.' },
@@ -15,9 +19,9 @@ const WhatWeDo = () => {
       <PageHero title="What We Do" />
       {/* Platform Highlights (moved to top) */}
       <section className="max-w-7xl mx-auto px-6 pb-8 pt-10 text-gray-800">
-        <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 mb-4">Platform Highlights</h3>
+        <h3 className="text-xl md:text-2xl font-extrabold text-[#ff6a21] mb-4">Platform Highlights</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-          <div className="rounded-3xl overflow-hidden bg-white border border-orange-100 shadow reveal">
+          <div className="rounded-3xl overflow-hidden bg-white border border-orange-100 shadow reveal hover:shadow-xl transition-all">
             <img loading="lazy" src="/Img/Master-Panel.png" alt="Platform modules" className="w-full h-80 object-contain" />
           </div>
           <div className="reveal reveal-delay-2">
@@ -40,16 +44,11 @@ const WhatWeDo = () => {
               WHAT WE DO
             </p>
             <h2 className="mt-2 text-2xl md:text-3xl font-extrabold text-gray-900 max-w-3xl">
-              We offer all kinds of services that are required to launch a website
+              We power modern, online school systems end‑to‑end
             </h2>
           </div>
-          <a
-            href="#services"
-            className="self-start md:self-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#ff6a21] text-white font-semibold hover:opacity-90 reveal reveal-delay-1"
-          >
-            Contact Us
-            <span className="text-white">→</span>
-          </a>
+
+          <Button variant='back' onClick={()=> (Navigate('/contact-us'))} text='Contact Us' icon={<ICONS.arrowright/>}/>
         </div>
 
         <div id="services" className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -69,10 +68,10 @@ const WhatWeDo = () => {
           ].map((item, i) => (
             <div
               key={item.label}
-              className={`group reveal reveal-delay-${(i%4)+1} rounded-2xl border border-orange-100 bg-white shadow-sm hover:shadow-lg transition-all p-4 flex items-center gap-3`}
+              className={`group reveal reveal-delay-${(i%4)+1} rounded-2xl border border-orange-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all p-4 flex items-center gap-3`}
             >
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-lg bg-blue-50 flex items-center justify-center overflow-hidden">
+                <div className="w-11 h-11 rounded-lg bg-orange-50 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform">
                   <img
                     loading="lazy"
                     src={item.img}
@@ -81,7 +80,7 @@ const WhatWeDo = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <div className="font-semibold text-gray-900">{item.label}</div>
+                <div className="font-semibold text-gray-900 group-hover:text-[#ff6a21]">{item.label}</div>
               </div>
             </div>
           ))}
@@ -89,10 +88,10 @@ const WhatWeDo = () => {
       </section>
       {/* Layout 1: Modules grid */}
       <section className="max-w-7xl mx-auto px-6 py-12 text-gray-800">
-        <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 mb-4">Core ERP Modules</h3>
+        <h3 className="text-xl md:text-2xl font-extrabold text-[#ff6a21] mb-4">Core ERP Modules</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((m, i) => (
-            <div key={m.title} className={`rounded-2xl bg-white shadow border border-orange-100 p-6 reveal reveal-delay-${(i%4)+1}`}>
+            <div key={m.title} className={`rounded-2xl bg-white shadow border border-orange-100 p-6 reveal reveal-delay-${(i%4)+1} hover:shadow-xl hover:-translate-y-1 transition-all`}>
               <h3 className="font-semibold text-gray-900">{m.title}</h3>
               <p className="mt-2 text-sm text-gray-600">{m.desc}</p>
             </div>

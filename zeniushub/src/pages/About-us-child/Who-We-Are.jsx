@@ -1,6 +1,7 @@
 import React from 'react'
 import PageHero from '../../component/PageHero'
 import Button from '../../component/Button'
+import { ICONS } from '../../component/Icons'
 
 const WhoWeAre = () => {
   return (
@@ -16,21 +17,42 @@ const WhoWeAre = () => {
           <div className="reveal order-2 md:order-1 rounded-2xl border border-orange-100 bg-white shadow p-6">
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#ff6a21]">Building a modern digital school</h2>
             <p className="mt-3 text-gray-700">Zeniushub is a professional digital‑school platform focused on outcomes: simpler operations, better coordination, and improved parent engagement. We blend secure cloud infrastructure with user‑friendly design to help institutions move faster.</p>
-            <ul className="mt-4 space-y-2 text-gray-700">
-              <li>• Automation across admissions, attendance, exams, transport and fees</li>
-              <li>• Live analytics dashboards for leaders and administrators</li>
-              <li>• Parent app for real‑time updates and two‑way communication</li>
+            <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {[
+                'Automation across admissions, attendance, exams, transport and fees',
+                'Live analytics dashboards for leaders and administrators',
+                'Parent app for real‑time updates and two‑way communication',
+                'Secure, scalable cloud infrastructure and backups'
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2 rounded-xl border border-orange-100 bg-orange-50/30 px-3 py-2">
+                  <ICONS.CheckCircle2 className="text-[#ff6a21] mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">{t}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10">
-          {[{k:'Schools',v:'75+'},{k:'Users',v:'10k+'},{k:'Uptime',v:'99.9%'},{k:'Reports',v:'50+'}].map((s,i)=> (
-            <div key={s.k} className={`rounded-xl bg-white shadow border border-orange-100 p-4 text-center reveal reveal-delay-${i+1}`}>
-              <div className="text-xl font-extrabold">{s.v}</div>
-              <div className="text-xs text-gray-500">{s.k}</div>
-            </div>
-          ))}
-        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 px-4 md:px-10">
+  {[
+    { k: "Schools", v: "75+" },
+    { k: "Users", v: "10k+" },
+    { k: "Uptime", v: "99.9%" },
+    { k: "Reports", v: "50+" },
+  ].map((s, i) => (
+    <div
+      key={s.k}
+      className={`rounded-2xl bg-white border border-[#ff6a21]/20 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out text-center p-6 reveal reveal-delay-${i + 1}`}
+    >
+      <div className="text-3xl md:text-4xl font-extrabold text-[#ff6a21] drop-shadow-sm">
+        {s.v}
+      </div>
+      <div className="text-sm md:text-base text-gray-600 mt-1 tracking-wide font-medium">
+        {s.k}
+      </div>
+    </div>
+  ))}
+</div>
+
       </section>
 
      
@@ -41,7 +63,7 @@ const WhoWeAre = () => {
           <div className="rounded-3xl overflow-hidden bg-white border border-orange-100 shadow-xl reveal animated-gradient">
             <div className="relative aspect-[16/10] w-full">
               <img loading="lazy" src="/Img/OurStory.jpg" alt="Experience in education" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute top-4 bottom-4 left-1/2 -translate-x-1/2 w-1.5 bg-[#ff6a21] rounded-full" />
+              {/* <div className="absolute top-4 bottom-4 left-1/2 -translate-x-1/2 w-1.5 bg-[#ff6a21] rounded-full" /> */}
             </div>
           </div>
           <div className="reveal reveal-delay-2 rounded-2xl border border-orange-100 bg-white shadow p-6">
@@ -60,6 +82,24 @@ const WhoWeAre = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Pillars cards */}
+      <section className="max-w-7xl mx-auto px-6 pb-16 text-gray-800 section-spacing">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { title: 'Secure by design', icon: <ICONS.shield className="text-[#ff6a21]" />, desc: 'Role-based access, encryption and backups.' },
+            { title: 'Analytics-first', icon: <ICONS.barchart3 className="text-[#ff6a21]" />, desc: 'Dashboards and insights for action.' },
+            { title: 'Human UX', icon: <ICONS.hearthandshake className="text-[#ff6a21]" />, desc: 'Clean flows for teachers and parents.' },
+            { title: 'Scalable Cloud', icon: <ICONS.Rocket className="text-[#ff6a21]" />, desc: 'Built to grow with your institution.' }
+          ].map((c,i)=> (
+            <div key={c.title} className={`rounded-2xl bg-white shadow border border-orange-100 p-6 reveal reveal-delay-${i+1} hover:shadow-xl hover:-translate-y-1 transition-all`}>
+              <div className="h-10 w-10 rounded-lg bg-orange-50 flex items-center justify-center">{c.icon}</div>
+              <h4 className="mt-3 font-semibold text-gray-900">{c.title}</h4>
+              <p className="mt-1 text-sm text-gray-600">{c.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
