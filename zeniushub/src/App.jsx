@@ -5,6 +5,7 @@ import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import WhatsAppFAB from "./component/WhatsAppFAB";
 import ScrollToTop from "./component/ScrollToTop";
+import RouteScrollToTop from "./component/RouteScrollToTop";
 
 import Solutions from "./pages/Solutions";
 import OurProcess from "./pages/Our-Process";
@@ -28,6 +29,7 @@ const App = () => {
 
   return (
     <>
+      <RouteScrollToTop behavior="smooth" />
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />

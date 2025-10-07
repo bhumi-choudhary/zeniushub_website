@@ -31,24 +31,43 @@ const WhyChooseUs = () => {
       </section>
 
       {/* Layout 2: Assurance cards */}
-      <section className="max-w-7xl mx-auto px-6 pb-14 text-gray-800">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[{
-            t:'Data Protection', d:'Encryption, backups, and strict data residency policies.'
-          },{
-            t:'Access Control', d:'Fine‑grained roles, SSO, and audit logs reduce risk.'
-          },{
-            t:'Reliability', d:'Multi‑AZ infrastructure, proactive monitoring & alerts.'
-          },{
-            t:'Compliance', d:'Best‑practice handling aligned with applicable regulations.'
-          }].map((c,i)=> (
-            <div key={c.t} className={`rounded-2xl bg-white shadow border border-orange-100 p-6 text-center reveal reveal-delay-${(i%4)+1}`}>
-              <h4 className="font-semibold text-gray-900">{c.t}</h4>
-              <p className="mt-2 text-sm text-gray-600">{c.d}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <section className="max-w-7xl mx-auto px-6 pb-16 text-gray-800">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {[
+      {
+        t: "Data Protection",
+        d: "Encryption, backups, and strict data residency policies.",
+      },
+      {
+        t: "Access Control",
+        d: "Fine-grained roles, SSO, and audit logs reduce risk.",
+      },
+      {
+        t: "Reliability",
+        d: "Multi-AZ infrastructure, proactive monitoring & alerts.",
+      },
+      {
+        t: "Compliance",
+        d: "Best-practice handling aligned with applicable regulations.",
+      },
+    ].map((c, i) => (
+      <div
+        key={c.t}
+        className={`relative rounded-2xl bg-white border border-orange-100 p-6 text-center shadow-md hover:shadow-xl transition-all duration-500 reveal reveal-delay-${(i % 4) + 1}`}
+      >
+        {/* Decorative Border Accent */}
+        <div className="absolute inset-0 rounded-2xl border-r-2 border-b-2 border-[#ff6a21] opacity-60 pointer-events-none"></div>
+
+        {/* Content */}
+        <h4 className="font-semibold text-gray-900 text-lg md:text-xl">
+          {c.t}
+        </h4>
+        <p className="mt-3 text-sm text-gray-600 leading-relaxed">{c.d}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Layout 3: Why Choose Us details */}
       <section className="max-w-7xl mx-auto px-6 pb-16 text-gray-800">

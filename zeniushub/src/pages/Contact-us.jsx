@@ -1,11 +1,26 @@
+<<<<<<< HEAD
 import React from 'react';
 import PageHero from '../component/PageHero';
 import { ICONS } from '../component/Icons';
+=======
+import React from 'react'
+import PageHero from '../component/PageHero'
+import Location from '../component/Location'
+>>>>>>> 0a0e051348eb73903e084991bf6b78967d419c5c
 
 const Contactus = () => {
   return (
     <>
       <PageHero />
+<<<<<<< HEAD
+=======
+      <div className="max-w-5xl mx-auto px-6 py-12 text-gray-800">
+        <Location/>
+      </div>
+    </>
+  )
+}
+>>>>>>> 0a0e051348eb73903e084991bf6b78967d419c5c
 
       <div className="relative min-h-screen overflow-hidden bg-gradient-to-tr from-orange-50 via-white to-orange-50 py-16 px-6">
 

@@ -4,6 +4,7 @@ import Herohome from "../component/Herohome";
 import { ICONS } from "../component/Icons";
 import role_img from "../assets/images/hero_image.png";
 import CTAsection from "../component/CTAsection";
+import PromoModal from "../component/PromoModal";
 import Button from "../component/Button";
 import { useNavigate } from 'react-router-dom';
 import TechProcessCard from "../component/TechProcessCard";
@@ -135,6 +136,7 @@ const Homepage = () => {
 
   return (
     <>
+      <PromoModal delayMs={2000} />
       {/* Main Background with Elegant Gradients */}
       <div className="fixed inset-0 -z-10">
         <svg width="100vw" height="100vh" style={{ position: "absolute", width: "100vw", height: "100vh" }}>

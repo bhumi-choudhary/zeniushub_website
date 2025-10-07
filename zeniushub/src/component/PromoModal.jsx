@@ -47,8 +47,10 @@ export default function PromoModal({ onClose, delayMs = 600 }) {
             <div className="marquee whitespace-nowrap text-[#ff6a21] font-semibold py-2">
               <span className="mx-6">Fast onboarding</span>
               <span className="mx-6">Secure cloud</span>
-              <span className="mx-6">Parent app</span>
-              <span className="mx-6">Multi-branch</span>
+              <span className="mx-6">Student app</span> 
+              <span className="mx-6">Admin panel</span> 
+              <span className="mx-6">Instructor panel</span> 
+              <span className="mx-6">Master panel</span>
               <span className="mx-6">Analytics & reports</span>
               <span className="mx-6">24x7 support</span>
             </div>
