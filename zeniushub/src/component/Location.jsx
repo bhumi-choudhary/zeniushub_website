@@ -1,7 +1,9 @@
 import React from 'react'
 import Button from './Button'
+import { useNavigate } from 'react-router-dom'
 
 const Location = () => {
+    const navigate = useNavigate()
   return (
     <>
   {/* Location & Connect */}
@@ -27,7 +29,7 @@ const Location = () => {
       <div className="mt-3 text-sm text-gray-500">Email</div>
       <a className="text-[#ff6a21] font-semibold" href="mailto:info@zeniushub.in">info@zeniushub.in</a>
       <div className="mt-5 flex gap-3">
-        <Button text='Contact Us' />
+        <Button text='Contact Us' onClick={() => navigate('/Contact-us')}/>
 
       </div>
     </div>

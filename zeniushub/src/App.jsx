@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom"
 import Homepage from "./pages/Homepage";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import WhatsAppFAB from "./component/WhatsAppFAB";
 import ScrollToTop from "./component/ScrollToTop";
+import GlobalLeadForm from "./component/GlobalLeadForm";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 import RouteScrollToTop from "./component/RouteScrollToTop";
-
+import logo from "../public/Img/loderlogo.png"
 import Solutions from "./pages/Solutions";
 import OurProcess from "./pages/Our-Process";
 import Clients from "./pages/Clients";
@@ -25,7 +28,32 @@ import HelpFeedback from "./pages/Help-Feedback";
 
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    // Simulating site load time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Show loader while loading
+  if (loading) {
+    return (
+      <div className="h-screen w-screen flex items-center justify-center bg-black text-white">
+        <div className="relative flex  justify-center items-center">
+          <div className="absolute animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-orange-500"></div>
+          <img
+            src={logo}
+            alt="Loading"
+            className="rounded-full h-28 w-28"
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -51,6 +79,8 @@ const App = () => {
       <Footer />
       <WhatsAppFAB />
       <ScrollToTop />
+      <GlobalLeadForm />
+      <ToastContainer position="top-center" theme="light" />
     </>
   );
 };
