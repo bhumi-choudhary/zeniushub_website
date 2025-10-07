@@ -7,15 +7,15 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-orange-50 to-white text-gray-700 py-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <span className="absolute left-10 top-10 text-orange-200 text-5xl font-bold float-up-down" style={{animationDelay: '0s'}}>+</span>
-        <span className="absolute left-20 top-24 text-orange-200 text-4xl font-bold float-up-down" style={{animationDelay: '0.8s'}}>+</span>
-        <span className="absolute left-6 top-32 text-orange-200 text-3xl font-bold float-up-down" style={{animationDelay: '1.6s'}}>+</span>
+        <span className="absolute left-10 top-10 text-orange-200 text-5xl font-bold float-up-down" style={{ animationDelay: '0s' }}>+</span>
+        <span className="absolute left-20 top-24 text-orange-200 text-4xl font-bold float-up-down" style={{ animationDelay: '0.8s' }}>+</span>
+        <span className="absolute left-6 top-32 text-orange-200 text-3xl font-bold float-up-down" style={{ animationDelay: '1.6s' }}>+</span>
 
-        <span className="hidden md:block absolute right-16 bottom-36 text-orange-200 text-5xl font-extrabold float-up-down" style={{animationDelay: '0.4s'}}>›</span>
-        <span className="hidden md:block absolute right-10 bottom-28 text-orange-200 text-5xl font-extrabold float-up-down" style={{animationDelay: '1.2s'}}>›</span>
-        <span className="hidden md:block absolute right-4 bottom-20 text-orange-200 text-5xl font-extrabold float-up-down" style={{animationDelay: '2s'}}>›</span>
+        <span className="hidden md:block absolute right-16 bottom-36 text-orange-200 text-5xl font-extrabold float-up-down" style={{ animationDelay: '0.4s' }}>›</span>
+        <span className="hidden md:block absolute right-10 bottom-28 text-orange-200 text-5xl font-extrabold float-up-down" style={{ animationDelay: '1.2s' }}>›</span>
+        <span className="hidden md:block absolute right-4 bottom-20 text-orange-200 text-5xl font-extrabold float-up-down" style={{ animationDelay: '2s' }}>›</span>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 items-start">
-    
+
           <div className="space-y-6">
             <h2 className="text-3xl lg:text-4xl font-extrabold text-[#ff6a21] leading-tight">
               Zeniushub
@@ -39,7 +39,7 @@ export default function Footer() {
               <li><a className="hover:text-[#ff6a21] underline decoration-dotted underline-offset-4" href="/Solutions">Solutions</a></li>
               <li><a className="hover:text-[#ff6a21] underline decoration-dotted underline-offset-4" href="/Our-Process">Our Process</a></li>
               <li><a className="hover:text-[#ff6a21] underline decoration-dotted underline-offset-4" href="/Clients">Clients</a></li>
-              <li><a className="hover:text-[#ff6a21] underline decoration-dotted underline-offset-4" href="/Contact-us">Contact us</a></li>
+
             </ul>
           </div>
           <div>
@@ -49,9 +49,9 @@ export default function Footer() {
               <span className="w-6 h-1 bg-[#ff6a21] rounded"></span>
             </div>
             <ul className="list-disc list-inside space-y-3 text-gray-700">
-              <li><a className="hover:text-[#ff6a21] underline decoration-dotted underline-offset-4" href="/Support">Support</a></li>
-              <li><a className="hover:text-[#ff6a21] underline decoration-dotted underline-offset-4" href="/Talk-To-Us">Talk To Us</a></li>
-              <li><a className="hover:text-[#ff6a21] underline decoration-dotted underline-offset-4" href="/How-To-Use">How To Use</a></li>
+
+              <li><a className="hover:text-[#ff6a21] underline decoration-dotted underline-offset-4" href="/Contact-us">Talk To Us</a></li>
+
               <li><a className="hover:text-[#ff6a21] underline decoration-dotted underline-offset-4" href="/Help-Feedback">Help & Feedback</a></li>
             </ul>
           </div>
@@ -79,7 +79,7 @@ export default function Footer() {
               <li className="flex items-start">
                 <ICONS.MapPin className="text-[#ff6a21] mr-3 mt-1" size={24} />
                 <div>
-                d-153, hanuman nagar, amerpali circle ,veshali nagar, (Opposite INOX Complex & Near Amerpali circle)
+                  d-153, hanuman nagar, amerpali circle ,veshali nagar, (Opposite INOX Complex & Near Amerpali circle)
                 </div>
               </li>
 

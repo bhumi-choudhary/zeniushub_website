@@ -18,10 +18,11 @@ import About from "./pages/About-us-child/About-Us";
 import WhoWeAre from "./pages/About-us-child/Who-We-Are";
 import WhatWeDo from "./pages/About-us-child/What-We-Do";
 import WhyChooseUs from "./pages/About-us-child/Why-Choose-Us";
-import Support from "./pages/Support";
+
 import Talk from "./pages/Talk-To-Us";
-import How from "./pages/How-To-Use";
+
 import HelpFeedback from "./pages/Help-Feedback";
+import NoDataFound from "./pages/NoDataFound ";
 
 
 const App = () => {
@@ -43,10 +44,11 @@ const App = () => {
         <Route path="/Contact-us" element={<Contactus />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
         <Route path="/Terms-Condition" element={<TermsCondition />} />
-        <Route path="/Support" element={<Support />} />
+
         <Route path="/Talk-To-Us" element={<Talk />} />
-        <Route path="/How-To-Use" element={<How />} />
+
         <Route path="/Help-Feedback" element={<HelpFeedback />} />
+        <Route path="*" element={<NoDataFound />} />
       </Routes>
       <Footer />
       <WhatsAppFAB />
