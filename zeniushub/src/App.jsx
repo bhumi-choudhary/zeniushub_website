@@ -9,13 +9,8 @@ import GlobalLeadForm from "./component/GlobalLeadForm";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import RouteScrollToTop from "./component/RouteScrollToTop";
-<<<<<<< HEAD
-
-import Solutions from "./pages/Pricing";
-=======
 import logo from "../public/Img/loderlogo.png"
-import Solutions from "./pages/Solutions";
->>>>>>> ac4c9688ac0206ea1b490310be78e6bbf1c3440e
+
 import OurProcess from "./pages/Our-Process";
 import Clients from "./pages/Clients";
 import Contactus from "./pages/Contact-us";
@@ -71,7 +66,7 @@ const App = () => {
         <Route path="/About-Us/Who-We-Are" element={<WhoWeAre />} />
         <Route path="/About-Us/What-We-Do" element={<WhatWeDo />} />
         <Route path="/About-Us/Why-Choose-Us" element={<WhyChooseUs />} />
-        <Route path="/Pricing" element={<Solutions />} />
+
         <Route path="/Our-Process" element={<OurProcess />} />
         <Route path="/Clients" element={<Clients />} />
         <Route path="/Contact-us" element={<Contactus />} />
