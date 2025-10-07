@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./Herohome.css";
 import ai_video from '../assets/video/ai_video.mp4';
 import heroimg from '../assets/images/hero_image.png';
 
 const HeroSection = () => {
+    const [showContent, setShowContent] = useState(false);
+
+    useEffect(() => {
+        // Show hero content after 3 seconds (adjust as needed)
+        const timer = setTimeout(() => {
+            setShowContent(true);
+        }, 3000);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <section className="hero">
             {/* Background Video */}
@@ -34,55 +44,61 @@ const HeroSection = () => {
                 transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
             />
 
-            <div className="hero-container">
-                {/* Text Section */}
+            {showContent && (
                 <motion.div
-                    className="hero-content"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="hero-container"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
                 >
-                    <h1>
-                        Empowering <span>Education</span> Through Innovation
-                    </h1>
-                    <motion.p
+                    {/* Text Section */}
+                    <motion.div
+                        className="hero-content"
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3, duration: 1 }}
+                        transition={{ duration: 1, delay: 0.5 }}
                     >
-                        Zeniushub connects Students, Instructors, Admins, and Super Admins
-                        — creating a smart learning ecosystem where knowledge meets technology.
-                    </motion.p>
+                        <h1>
+                            Empowering <span>Education</span> Through Innovation
+                        </h1>
+                        <motion.p
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.8 }}
+                        >
+                            Zeniushub connects Students, Instructors, Admins, and Super Admins — creating a smart learning ecosystem where knowledge meets technology.
+                        </motion.p>
 
-                    <motion.button
-                        whileHover={{
-                            scale: 1.1,
-                            boxShadow: "0 0 25px rgba(255,111,0,0.6)",
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 200 }}
-                        className="hero-btn"
+                        <motion.button
+                            whileHover={{
+                                scale: 1.1,
+                                boxShadow: "0 0 25px rgba(255,111,0,0.6)",
+                            }}
+                            whileTap={{ scale: 0.95 }}
+                            transition={{ type: "spring", stiffness: 200 }}
+                            className="hero-btn"
+                        >
+                            Explore Platform
+                        </motion.button>
+                    </motion.div>
+
+                    {/* Image Section */}
+                    <motion.div
+                        className="hero-image"
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 1, duration: 1.2, ease: "easeOut" }}
                     >
-                        Explore Platform
-                    </motion.button>
+                        <motion.img
+                            src={heroimg}
+                            alt="Education Portal"
+                            animate={{ y: [0, -20, 0] }}
+                            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                            draggable={false}
+                        />
+                    </motion.div>
                 </motion.div>
-
-                {/* Image Section */}
-                <motion.div
-                    className="hero-image"
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}
-                >
-                    <motion.img
-                        src={heroimg}
-                        alt="Education Portal"
-                        animate={{ y: [0, -20, 0] }}
-                        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                        draggable={false}
-                    />
-                </motion.div>
-            </div>
+            )}
         </section>
     );
 };

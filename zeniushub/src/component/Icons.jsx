@@ -37,7 +37,8 @@ import {
     ChartArea,
     CircleCheckBig,
     Box,
-    University
+    University,
+    Map
 } from "lucide-react";
 
 // Wrapper function to add default props like size & className
@@ -83,4 +84,5 @@ export const ICONS = {
     circlecheck: createIcon(CircleCheckBig, { size: 24, className: "text-black" }),
     building: createIcon(University, { size: 24, className: "text-black" }),
     cube: createIcon(Box, { size: 24, className: "text-black" }),
+    map: createIcon(Map, { size: 24, className: "text-black" }),
 };
