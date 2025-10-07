@@ -7,7 +7,7 @@ import WhatsAppFAB from "./component/WhatsAppFAB";
 import ScrollToTop from "./component/ScrollToTop";
 import RouteScrollToTop from "./component/RouteScrollToTop";
 
-import Solutions from "./pages/Solutions";
+import Solutions from "./pages/Pricing";
 import OurProcess from "./pages/Our-Process";
 import Clients from "./pages/Clients";
 import Contactus from "./pages/Contact-us";
@@ -37,7 +37,7 @@ const App = () => {
         <Route path="/About-Us/Who-We-Are" element={<WhoWeAre />} />
         <Route path="/About-Us/What-We-Do" element={<WhatWeDo />} />
         <Route path="/About-Us/Why-Choose-Us" element={<WhyChooseUs />} />
-        <Route path="/Solutions" element={<Solutions />} />
+        <Route path="/Pricing" element={<Solutions />} />
         <Route path="/Our-Process" element={<OurProcess />} />
         <Route path="/Clients" element={<Clients />} />
         <Route path="/Contact-us" element={<Contactus />} />

@@ -25,7 +25,7 @@ const pageroute = {
     'Home': '/',
     'About': '/About-Us',
     'Our-Process': '/Our-Process',
-    'Pricing': '/Solutions',
+    'Pricing': '/Pricing',
     'Our-Client': '/Clients',
     'Contact-Us': '/Contact-us'
 };
@@ -34,7 +34,7 @@ const Header = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [aboutOpen, setAboutOpen] = useState(false);
     const [hoverAbout, setHoverAbout] = useState(false);
-    const [scrolled, setScrolled] = useState(false); 
+    const [scrolled, setScrolled] = useState(false);
     const drawerRef = useRef(null);
     const listItemRefs = useRef([]);
     const navigate = useNavigate();

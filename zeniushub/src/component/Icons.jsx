@@ -38,7 +38,8 @@ import {
     CircleCheckBig,
     Box,
     University,
-    Map
+    Map,
+    ArrowDown
 } from "lucide-react";
 
 // Wrapper function to add default props like size & className
@@ -85,4 +86,6 @@ export const ICONS = {
     building: createIcon(University, { size: 24, className: "text-black" }),
     cube: createIcon(Box, { size: 24, className: "text-black" }),
     map: createIcon(Map, { size: 24, className: "text-black" }),
+    arrowdown: createIcon(ArrowDown, { size: 24, className: "text-black" }),
 };
+export default ICONS
