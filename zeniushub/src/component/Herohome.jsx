@@ -11,7 +11,7 @@ const HeroSection = () => {
         // Show hero content after 3 seconds (adjust as needed)
         const timer = setTimeout(() => {
             setShowContent(true);
-        }, 3000);
+        }, 300);
         return () => clearTimeout(timer);
     }, []);
 
@@ -77,6 +77,10 @@ const HeroSection = () => {
                             whileTap={{ scale: 0.95 }}
                             transition={{ type: "spring", stiffness: 200 }}
                             className="hero-btn"
+                            onClick={() => {
+                                const ev = new Event('open-lead-form')
+                                window.dispatchEvent(ev)
+                            }}
                         >
                             Explore Platform
                         </motion.button>

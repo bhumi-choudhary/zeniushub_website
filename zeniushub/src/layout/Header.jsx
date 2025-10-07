@@ -98,22 +98,18 @@ const Header = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     {/* Logo */}
-                    <Typography
-                        variant="h6"
-                        component="div"
+                    <Box
+                        component="img"
+                        src="/Img/headerlogo.png"
+                        alt="Zeniushub"
                         onClick={() => navigate(pageroute['Home'])}
                         sx={{
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.2rem',
-                            color: 'black',
+                            height: { xs: 100, sm: 120, md: 156 },
+                            width: 'auto',
                             cursor: 'pointer',
-                            textDecoration: 'none',
-                            fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' },
+                            display: 'block',
                         }}
-                    >
-                        Zeniushub
-                    </Typography>
+                    />
 
                     {/* Desktop Nav (only from lg and up) */}
                     <Box
@@ -134,17 +130,17 @@ const Header = () => {
                                     onMouseLeave={() => setHoverAbout(false)}
                                 >
                                     <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 1 }}>
-                                        <Typography
-                                            sx={{
+                                    <Typography
+                                        sx={{
                                                 fontWeight: 600,
-                                                cursor: 'pointer',
+                                            cursor: 'pointer',
                                                 color: isActivePage(page) ? 'orangered' : 'black',
-                                                '&:hover': { color: 'orangered' },
-                                            }}
-                                            onClick={() => navigate(pageroute[page])}
-                                        >
-                                            {page}
-                                        </Typography>
+                                            '&:hover': { color: 'orangered' },
+                                        }}
+                                        onClick={() => navigate(pageroute[page])}
+                                    >
+                                        {page}
+                                    </Typography>
                                         {/* plus/minus indicator on lg only */}
                                         <IconButton
                                             onClick={() => setHoverAbout((v) => !v)}
@@ -271,7 +267,7 @@ const Header = () => {
                 <Box ref={drawerRef} sx={{ p: 3 }}>
                     {/* Header inside Drawer */}
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-                        <Typography sx={{ fontWeight: 700, fontSize: '1.3rem', color: 'black' }}>Zeniushub</Typography>
+                        <Box component="img" src="/Img/headerlogo.png" alt="Zeniushub" sx={{height: { xs: 50, sm: 80,md:190 }, width: 'auto' }} />
                         <IconButton onClick={toggleDrawer(false)} sx={{ color: 'orangered' }}>
                             <X />
                         </IconButton>
@@ -297,7 +293,12 @@ const Header = () => {
                                             '&:hover': { backgroundColor: 'rgba(255,68,0,0.08)' },
                                         }}
                                     >
-                                        <Typography sx={{ fontWeight: 700, color: isActivePage('About') ? 'orangered' : 'black' }}>{page}</Typography>
+                                        <Typography
+                                            onClick={() => { navigate(pageroute[page]); setDrawerOpen(false); }}
+                                            sx={{ fontWeight: 700, color: isActivePage('About') ? 'orangered' : 'black', cursor: 'pointer' }}
+                                        >
+                                            {page}
+                                        </Typography>
                                         <IconButton
                                             onClick={() => setAboutOpen(!aboutOpen)}
                                             sx={{ color: 'orangered', p: 0.5 }}

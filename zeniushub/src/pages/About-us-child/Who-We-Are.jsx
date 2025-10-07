@@ -2,8 +2,33 @@ import React from 'react'
 import PageHero from '../../component/PageHero'
 import Button from '../../component/Button'
 import { ICONS } from '../../component/Icons'
+import TechProcessCard from '../../component/TechProcessCard'
 
 const WhoWeAre = () => {
+
+
+  const modernizationRoadmap = [
+    {
+      icon:  <ICONS.shield  />,
+      title: "Secure by design",
+      desc: "Role-based access, encryption and backups."
+    },
+    {
+      icon: <ICONS.barchart3  />,
+      title: "Analytics-first",
+      desc: "Dashboards and insights for action."
+    },
+    {
+      icon: <ICONS.hearthandshake  />,
+      title: "Human UX",
+      desc: "Clean flows for teachers and parents."
+    },
+    {
+      icon: <ICONS.Rocket  />,
+      title: "Scalable Cloud",
+      desc: "Built to grow with your institution."
+    },
+  ];
   return (
     <>
       <PageHero title="Who We Are" />
@@ -88,17 +113,9 @@ const WhoWeAre = () => {
       {/* Pillars cards */}
       <section className="max-w-7xl mx-auto px-6 pb-16 text-gray-800 section-spacing">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { title: 'Secure by design', icon: <ICONS.shield className="text-[#ff6a21]" />, desc: 'Role-based access, encryption and backups.' },
-            { title: 'Analytics-first', icon: <ICONS.barchart3 className="text-[#ff6a21]" />, desc: 'Dashboards and insights for action.' },
-            { title: 'Human UX', icon: <ICONS.hearthandshake className="text-[#ff6a21]" />, desc: 'Clean flows for teachers and parents.' },
-            { title: 'Scalable Cloud', icon: <ICONS.Rocket className="text-[#ff6a21]" />, desc: 'Built to grow with your institution.' }
-          ].map((c,i)=> (
-            <div key={c.title} className={`rounded-2xl bg-white shadow border border-orange-100 p-6 reveal reveal-delay-${i+1} hover:shadow-xl hover:-translate-y-1 transition-all`}>
-              <div className="h-10 w-10 rounded-lg bg-orange-50 flex items-center justify-center">{c.icon}</div>
-              <h4 className="mt-3 font-semibold text-gray-900">{c.title}</h4>
-              <p className="mt-1 text-sm text-gray-600">{c.desc}</p>
-            </div>
+        {modernizationRoadmap.map(({ icon, title, desc }, idx) => (
+            <TechProcessCard step={icon} title={title} desc={desc} />
+
           ))}
         </div>
       </section>
@@ -146,7 +163,10 @@ const WhoWeAre = () => {
             <div className="rounded-2xl border border-orange-100 bg-gradient-to-b from-orange-50 to-white shadow-lg p-6 flex flex-col gap-3">
               <h4 className="text-lg font-extrabold text-gray-900">Let’s Build Your Digital School</h4>
               <p className="text-sm text-gray-700">Need a fast, secure and beautiful experience for students and parents? Our team can help you plan and launch quickly.</p>
-        <Button text='Contact Us'/>
+        <Button text='Contact Us'  onClick={() => {
+                                const ev = new Event('open-lead-form')
+                                window.dispatchEvent(ev)
+                            }}/>
             </div>
           </div>
         </div>

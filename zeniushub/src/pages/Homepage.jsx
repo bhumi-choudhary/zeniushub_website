@@ -136,7 +136,7 @@ const Homepage = () => {
 
   return (
     <>
-      <PromoModal delayMs={2000} />
+      <PromoModal delayMs={8000} />
       {/* Main Background with Elegant Gradients */}
       <div className="fixed inset-0 -z-10">
         <svg width="100vw" height="100vh" style={{ position: "absolute", width: "100vw", height: "100vh" }}>
@@ -149,8 +149,8 @@ const Homepage = () => {
       {/* Hero Section */}
       <Herohome />
 
-      {/* Roles Overview Slider */}
-      <section className="relative bg-gradient-to-r from-white to-orange-50 py-16 md:py-24 overflow-hidden px-4 sm:px-6 lg:px-8">
+      {/* Roles Overview Slider - desktop/tablet */}
+      <section className="relative bg-gradient-to-r from-white to-orange-50 py-16 md:py-24 overflow-hidden px-4 sm:px-6 lg:px-8 hidden md:block">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,69,0,0.06)_0,transparent_80%)] z-0"></div>
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-extrabold text-center mb-10 md:mb-16 text-[#FF4500] tracking-tight drop-shadow">
@@ -212,6 +212,56 @@ const Homepage = () => {
               ))}
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Roles Overview Slider - mobile only (moved under content) */}
+      <section className="relative bg-gradient-to-r from-white to-orange-50 py-12 overflow-hidden px-4 sm:px-6 lg:px-8 md:hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(255,69,0,0.06)_0,transparent_80%)] z-0"></div>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-extrabold text-center mb-8 text-[#FF4500] tracking-tight drop-shadow">
+            Roles Overview
+          </h2>
+          <div className="w-full bg-white rounded-[24px] shadow-2xl mx-auto flex flex-col overflow-hidden relative p-4">
+            {/* Image */}
+            <motion.div
+              key={data[index].title + "-img-m"}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45 }}
+              className="w-full flex justify-center items-center bg-gradient-to-br from-[#FF6347] to-[#FF4500] rounded-[16px] overflow-hidden"
+            >
+              <img src={role_img} alt={data[index].title} className="object-cover w-full max-h-56" />
+            </motion.div>
+            {/* Text */}
+            <motion.div
+              key={data[index].title + "-text-m"}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.05 }}
+              className="w-full pt-4"
+            >
+              <p className="text-orange-400 mb-2 text-sm text-center">{data[index].date}</p>
+              <h3 className="text-xl font-bold mb-2 text-[#FF4500] text-center">{data[index].title}</h3>
+              <p className="text-gray-600 text-center mb-4">{data[index].desc}</p>
+              <div className="flex justify-center">
+                <button className="bg-gradient-to-r from-[#FF4500] to-[#FF6347] text-white px-5 py-2 rounded-full font-semibold shadow">
+                  READ MORE
+                </button>
+              </div>
+            </motion.div>
+            {/* Dots */}
+            <div className="mt-4 flex justify-center space-x-2 z-20">
+              {data.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIndex(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${i === index ? "bg-[#FF4500]" : "bg-gray-300"}`}
+                  aria-label={`Go to role ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -286,9 +336,9 @@ const Homepage = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center md:justify-between gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 justify-items-center">
           {stats.map(({ icon, label, value }, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center max-w-[14rem] mx-auto p-4">
+            <div key={idx} className="flex flex-col items-center text-center w-full max-w-[14rem] p-4">
               <div className="bg-orange-500 rounded-xl p-5 mb-4 flex items-center justify-center shadow-lg ">
                 {icon}
               </div>
@@ -367,7 +417,7 @@ const Homepage = () => {
               className="w-full h-auto max-h-[450px] sm:max-h-[500px] object-cover"
             />
           </motion.div>
-        </div>
+    </div>
       </section>
 
 
@@ -393,7 +443,7 @@ const Homepage = () => {
             <TechProcessCard step={step} title={title} desc={desc} />
 
           ))}
-        </div>
+    </div>
       </section>
 
       {/* Call To Action */}

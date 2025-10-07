@@ -9,6 +9,7 @@ import Location from '../../component/Location'
 
 
 const About = () => {
+  
   return (
     <>
       <PageHero />
@@ -271,7 +272,7 @@ const About = () => {
                     onError={(e) => { e.currentTarget.src = '/Img/logo.png'; }}
                   />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/60 flex items-center justify-center px-4">
-                    <p className="text-white text-sm text-center">{p.hoverDesc}</p>
+                    <p className="text-[#ff6a21] font-semibold text-sm text-center">{p.hoverDesc}</p>
                   </div>
                 </div>
                 <div className="p-5">

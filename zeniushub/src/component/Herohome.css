@@ -127,8 +127,9 @@
 
 .hero-image img {
   width: 100%;
-  max-width: 450px;
+  max-width: min(44vw, 520px);
   height: auto;
+  object-fit: contain;
   filter: drop-shadow(0px 10px 25px rgba(255, 111, 0, 0.4));
   user-select: none;
   border-radius: 20px;
@@ -139,7 +140,9 @@
 @media (max-width: 1024px) {
   .hero-container {
     gap: 1.5rem;
+    justify-content: center; /* center content horizontally */
   }
+  .hero { align-items: flex-end; padding-bottom: 2.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -147,22 +150,21 @@
     flex-direction: column-reverse;
     text-align: center;
   }
+  .hero { align-items: flex-end; padding-bottom: 2.5rem; }
 
   .hero-content {
     padding: 0.5rem 1rem;
     margin: 0; /* reset margin if any */
   }
 
-  .hero-content p {
-    margin: 0.5rem auto 0 auto; /* smaller top margin */
-  }
+ 
 
   .hero-image {
     text-align: center;
     z-index: 2;
   }
   .hero-image img {
-    max-width: 320px;
+    max-width: 360px;
     margin: 0 auto; /* center image */
   }
 }
@@ -189,6 +191,7 @@
     z-index: 2;
   }
   .hero-image img {
-    max-width: 280px;
+    max-width: 320px;
+    margin-top: 30px;
   }
 }

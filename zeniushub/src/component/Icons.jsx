@@ -49,6 +49,7 @@ const createIcon = (IconComponent, defaultProps = {}) => {
 
 // All icons stored in a single object
 export const ICONS = {
+<<<<<<< HEAD
     arrowleft: createIcon(ArrowLeft, { size: 24, className: "text-black" }),
     arrowright: createIcon(ArrowRight, { size: 24, className: "text-black" }),
     home: createIcon(Home, { size: 24, className: "text-black" }),
@@ -87,5 +88,44 @@ export const ICONS = {
     cube: createIcon(Box, { size: 24, className: "text-black" }),
     map: createIcon(Map, { size: 24, className: "text-black" }),
     arrowdown: createIcon(ArrowDown, { size: 24, className: "text-black" }),
+=======
+    arrowleft: createIcon(ArrowLeft, { size: 24,  }),
+    arrowright: createIcon(ArrowRight, { size: 24,  }),
+    home: createIcon(Home, { size: 24,  }),
+    user: createIcon(User, { size: 24,  }),
+    Users: createIcon(Users, { size: 24,  }),
+    search: createIcon(Search, { size: 24,  }),
+    setting: createIcon(Settings, { size: 24,  }),
+    bell: createIcon(Bell, { size: 24,  }),
+    logout: createIcon(LogOut, { size: 24,  }),
+    edit2: createIcon(Edit2, { size: 24,  }),
+    trash: createIcon(Trash2, { size: 24,  }),
+    plus: createIcon(Plus, { size: 24,  }),
+    phone: createIcon(Phone, { size: 24,  }),
+    mail: createIcon(Mail, { size: 24,  }),
+    list: createIcon(List, { size: 24,  }),
+    x: createIcon(X, { size: 24,  }),
+    mappin: createIcon(MapPin, { size: 24,  }),
+    MapPin: createIcon(MapPin, { size: 24,  }),
+    award: createIcon(Award, { size: 24,  }),
+    shield: createIcon(Shield, { size: 24,  }),
+    barchart3: createIcon(BarChart3, { size: 24,  }),
+    Rocket: createIcon(Rocket, { size: 24,  }),
+    CheckCircle2: createIcon(CheckCircle2, { size: 24,  }),
+    hearthandshake: createIcon(HeartHandshake, { size: 24,  }),
+    badgecheck: createIcon(BadgeCheck, { size: 24,  }),
+    cpu: createIcon(Cpu, { size: 24,  }),
+    globe: createIcon(Globe, { size: 24,  }),
+    clock: createIcon(Clock, { size: 24,  }),
+    sparkles: createIcon(Sparkles, { size: 24,  }),
+    bookopen: createIcon(BookOpen, { size: 24,  }),
+    clipboardcheck: createIcon(ClipboardCheck, { size: 24,  }),
+    graduatecap: createIcon(GraduationCap, { size: 24,  }),
+    chart: createIcon(ChartArea, { size: 24,  }),
+    circlecheck: createIcon(CircleCheckBig, { size: 24,  }),
+    building: createIcon(University, { size: 24,  }),
+    cube: createIcon(Box, { size: 24,  }),
+    map: createIcon(Map, { size: 24,  }),
+>>>>>>> ac4c9688ac0206ea1b490310be78e6bbf1c3440e
 };
 export default ICONS
