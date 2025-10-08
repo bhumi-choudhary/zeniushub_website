@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import RouteScrollToTop from "./component/RouteScrollToTop";
 import logo from "../public/Img/loderlogo.png"
-import NoInternet from "./pages/NoInternet";
+
 import useInternetStatus from "./hooks/useInternetStatus";
 
 import OurProcess from "./pages/Our-Process";
@@ -30,6 +30,7 @@ import HelpFeedback from "./pages/Help-Feedback";
 import NoDataFound from "./pages/404";
 import Pricing from "./pages/Pricing";
 import TalkToUs from "./pages/Talk-To-Us";
+import NoInternet from "./pages/nointernet";
 
 
 
