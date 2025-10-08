@@ -10,6 +10,8 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import RouteScrollToTop from "./component/RouteScrollToTop";
 import logo from "../public/Img/loderlogo.png"
+import NoInternet from "./pages/NoInternet";
+import useInternetStatus from "./hooks/useInternetStatus";
 
 import OurProcess from "./pages/Our-Process";
 import Clients from "./pages/Clients";
@@ -33,6 +35,7 @@ import TalkToUs from "./pages/Talk-To-Us";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const { isOnline } = useInternetStatus();
 
   useEffect(() => {
     // Simulating site load time
@@ -57,6 +60,11 @@ const App = () => {
         </div>
       </div>
     );
+  }
+
+  // Show no internet page when offline
+  if (!isOnline) {
+    return <NoInternet />;
   }
 
   return (

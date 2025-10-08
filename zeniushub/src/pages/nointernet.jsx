@@ -1,90 +1,130 @@
-// src/components/NoInternet.jsx
-import React, { useEffect, useState } from "react";
-import Lottie from "lottie-react";
-import noInternetJson from "../assets/video/no-internet.json"; // <- put your file here
-import Header from "../layout/Header";
-import Footer from "../layout/Footer";
+import React, { useState, useEffect } from 'react';
+import { ICONS } from '../component/Icons';
+import Button from '../component/Button';
 
-const NoInternet = ({ message = "You appear to be offline." }) => {
-    const [isOnline, setIsOnline] = useState(navigator.onLine);
+const NoInternet = () => {
+  const [isRetrying, setIsRetrying] = useState(false);
 
-    useEffect(() => {
-        const goOnline = () => setIsOnline(true);
-        const goOffline = () => setIsOnline(false);
+  const handleRetry = () => {
+    setIsRetrying(true);
+    // Simulate retry delay
+    setTimeout(() => {
+      setIsRetrying(false);
+      // Force page reload to check connection
+      window.location.reload();
+    }, 2000);
+  };
 
-        window.addEventListener("online", goOnline);
-        window.addEventListener("offline", goOffline);
-        return () => {
-            window.removeEventListener("online", goOnline);
-            window.removeEventListener("offline", goOffline);
-        };
-    }, []);
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      {/* Background Animation Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 w-20 h-20 bg-orange-200/30 rounded-full animate-pulse"></div>
+        <div className="absolute top-32 right-16 w-16 h-16 bg-orange-300/20 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute bottom-20 left-20 w-24 h-24 bg-orange-200/25 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-32 right-10 w-12 h-12 bg-orange-300/30 rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
+        
+        {/* Floating WiFi Icons */}
+        <div className="absolute top-1/4 left-1/4 text-orange-300/40 animate-float">
+          <ICONS.globe className="w-8 h-8" />
+        </div>
+        <div className="absolute top-3/4 right-1/4 text-orange-300/40 animate-float" style={{animationDelay: '2s'}}>
+          <ICONS.globe className="w-6 h-6" />
+        </div>
+      </div>
 
-    const handleRetry = () => {
-        // small UX: try navigator.onLine first then reload
-        if (navigator.onLine) {
-            // If online, reload to resume app
-            window.location.reload();
-        } else {
-            // try a quick fetch to confirm connectivity
-            fetch("https://www.google.com/generate_204", { method: "HEAD", mode: "no-cors" })
-                .catch(() => {
-                    // still offline — show a gentle shake feedback (via class) or notify
-                    // simple feedback: flash a message by toggling state (keep minimal)
-                    alert("Still offline. Check your connection and try again.");
-                })
-                .finally(() => {
-                    // attempt reload anyway (useful if captive portal)
-                    setTimeout(() => window.location.reload(), 500);
-                });
-        }
-    };
-
-    return (
-        <>
-            <Header />
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-50 to-white px-4">
-                <div className="max-w-2xl w-full bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8 text-center">
-                    <div className="w-64 mx-auto">
-                        {/* Lottie animation */}
-                        <Lottie animationData={noInternetJson} loop={true} />
-                    </div>
-
-                    <h1 className="mt-4 text-2xl font-semibold text-slate-800">{message}</h1>
-                    <p className="mt-2 text-sm text-slate-600">
-                        {isOnline ? "We see your device is online — try reloading." : "Your device is offline. Check Wi‑Fi or mobile data."}
-                    </p>
-
-                    <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-                        <button
-                            onClick={handleRetry}
-                            className="px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300"
-                            aria-label="Retry connection"
-                        >
-                            Retry
-                        </button>
-
-                        <button
-                            onClick={() => window.open("about:blank", "_self")}
-                            className="px-5 py-2 rounded-lg border border-slate-200 text-slate-700 bg-white hover:bg-slate-50"
-                            aria-label="Open network settings"
-                        >
-                            Open Network Settings
-                        </button>
-                    </div>
-
-                    <ul className="mt-6 text-sm text-slate-500 space-y-2 text-left max-w-md mx-auto">
-                        <li>• Turn airplane mode off.</li>
-                        <li>• Toggle Wi‑Fi or reconnect to your hotspot.</li>
-                        <li>• If using a router, try rebooting it.</li>
-                    </ul>
-
-                    <div className="mt-6 text-xs text-slate-400">Status: {isOnline ? "Online" : "Offline"}</div>
-                </div>
+      <div className="relative z-10 max-w-md w-full text-center">
+        {/* Main No Internet Icon with Animation */}
+        <div className="relative mb-8">
+          <div className="mx-auto w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-orange-200 animate-pulse">
+            <div className="relative">
+              <ICONS.globe className="w-16 h-16 text-orange-500" />
+              {/* Disconnected indicator */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center animate-ping">
+                <ICONS.x className="w-3 h-3 text-white" />
+              </div>
             </div>
-            <Footer />
-        </>
-    );
+          </div>
+          
+          {/* Signal waves animation */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="w-40 h-40 border-2 border-orange-300/30 rounded-full animate-ping"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-orange-300/20 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 border-2 border-orange-300/10 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-8 border border-orange-100">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+            No Internet Connection
+          </h1>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Oops! It looks like you're not connected to the internet. 
+            Please check your connection and try again.
+          </p>
+
+          {/* Connection Tips */}
+          <div className="bg-orange-50 rounded-lg p-4 mb-6 text-left">
+            <h3 className="font-semibold text-orange-800 mb-2 flex items-center">
+              <ICONS.lightbulb className="w-4 h-4 mr-2" />
+              Quick Tips:
+            </h3>
+            <ul className="text-sm text-orange-700 space-y-1">
+              <li>• Check your WiFi or mobile data connection</li>
+              <li>• Try moving to a different location</li>
+              <li>• Restart your router or device</li>
+              <li>• Contact your internet service provider</li>
+            </ul>
+          </div>
+
+          {/* Retry Button */}
+          <Button
+            onClick={handleRetry}
+            disabled={isRetrying}
+            text={isRetrying ? "Retrying..." : "Try Again"}
+            className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
+              isRetrying 
+                ? 'bg-gray-400 cursor-not-allowed' 
+                : 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105'
+            }`}
+          />
+
+          {/* Additional Info */}
+          <div className="mt-6 pt-4 border-t border-orange-100">
+            <p className="text-xs text-gray-500 flex items-center justify-center">
+              <ICONS.shield className="w-3 h-3 mr-1" />
+              Your data is safe with Zeniushub
+            </p>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="mt-8 text-center">
+          <p className="text-sm text-gray-500">
+            Having trouble? Contact our support team
+          </p>
+          <div className="flex justify-center items-center space-x-4 mt-2">
+            <a 
+              href="tel:+919257479576" 
+              className="text-orange-600 hover:text-orange-700 text-sm font-medium flex items-center"
+            >
+              <ICONS.phone className="w-3 h-3 mr-1" />
+              +91 92574 79576
+            </a>
+            <span className="text-gray-300">|</span>
+            <a 
+              href="mailto:support@zeniushub.in" 
+              className="text-orange-600 hover:text-orange-700 text-sm font-medium flex items-center"
+            >
+              <ICONS.mail className="w-3 h-3 mr-1" />
+              Support
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default NoInternet;

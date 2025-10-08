@@ -41,7 +41,8 @@ import {
     Map,
     ArrowDown,
     Headphones,
-    Calendar
+    Calendar,
+    Lightbulb
 } from "lucide-react";
 
 // Wrapper function to add default props like size & className
@@ -93,5 +94,6 @@ export const ICONS = {
     Headphones: createIcon(Headphones, { size: 24,  }),
     Calendar: createIcon(Calendar, { size: 24,  }),
     ArrowRight: createIcon(ArrowRight, { size: 24,  }),
+    lightbulb: createIcon(Lightbulb, { size: 24,  }),
 };
 export default ICONS
