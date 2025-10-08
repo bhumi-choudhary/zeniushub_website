@@ -3,6 +3,8 @@ import PageHero from '../component/PageHero';
 import { ICONS } from '../component/Icons';
 import Button from '../component/Button';
 import CTAsection from '../component/CTAsection';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 
 const TalkToUs = () => {
   const features = [
@@ -70,6 +72,7 @@ const TalkToUs = () => {
 
   return (
     <>
+      <Header />
       <PageHero />
 
       {/* Hero Section with Company Info */}
@@ -171,11 +174,11 @@ const TalkToUs = () => {
 
 
 
- {/* Call To Action */}
- <section className="px-6 py-10 max-w-7xl mx-auto">
+      {/* Call To Action */}
+      <section className="px-6 py-10 max-w-7xl mx-auto">
         <CTAsection />
       </section>
-
+      <Footer />
     </>
   );
 };

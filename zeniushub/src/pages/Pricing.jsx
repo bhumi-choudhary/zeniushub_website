@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PageHero from "../component/PageHero";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
 // Pricing data with numeric prices and optional offers
 const plans = [
@@ -193,10 +195,10 @@ const PricingCard = ({ plan, highlight }) => {
     <div
       className={`relative bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4 transition-all hover:shadow-2xl ${highlight ? "popular-plan" : "border-r-2 border-b-2 border-orange-400"
         }`}
-      style={{ 
+      style={{
         minHeight: "360px",
         alignSelf: "start"
-      }} 
+      }}
     >
       {highlight && (
         <div className="absolute top-2 right-2 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded">
@@ -264,6 +266,7 @@ const Pricing = () => {
 
   return (
     <>
+      <Header />
       <PageHero />
       <section className="bg-gradient-to-b from-white via-orange-50 to-white py-16 px-4">
         <h2 className="text-4xl text-center font-extrabold text-orange-500 mb-4">
@@ -283,7 +286,7 @@ const Pricing = () => {
           ))}
         </div>
       </section>
-
+      <Footer />
 
 
     </>

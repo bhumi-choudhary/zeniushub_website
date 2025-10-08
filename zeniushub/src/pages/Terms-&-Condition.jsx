@@ -1,10 +1,13 @@
 import React from 'react'
 import PageHero from '../component/PageHero'
+import Header from '../layout/Header'
+import Footer from '../layout/Footer'
 
 const TermsCondition = () => {
   return (
     <>
-    {/* Main hero section  */}
+      <Header />
+      {/* Main hero section  */}
       <PageHero title="Terms and Conditions" />
       <section className="max-w-5xl mx-auto px-6 py-10">
         <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl border border-orange-100">
@@ -149,6 +152,7 @@ const TermsCondition = () => {
           </article>
         </div>
       </section>
+      <Footer />
     </>
   )
 }

@@ -62,7 +62,7 @@ const App = () => {
   return (
     <>
       <RouteScrollToTop behavior="smooth" />
-      <Header />
+
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/About-Us" element={<About />} />
@@ -74,18 +74,13 @@ const App = () => {
         <Route path="/Contact-us" element={<Contactus />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
         <Route path="/Terms-Condition" element={<TermsCondition />} />
-<<<<<<< HEAD
         <Route path="/Pricing" element={<Pricing />} />
-        <Route path="/Talk-To-Us" element={<Talk />} />
-=======
-        <Route path="/Pricing" element={<Pricing />}/> 
         <Route path="/Talk-To-Us" element={<TalkToUs />} />
->>>>>>> 2266cfff1cf156d05cde31d68340f2ac9c51b182
         <Route path="/Help-Feedback" element={<HelpFeedback />} />
         <Route path="*" element={<NoDataFound />} />
 
       </Routes>
-      <Footer />
+
       <WhatsAppFAB />
       <ScrollToTop />
       <GlobalLeadForm />

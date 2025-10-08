@@ -1,9 +1,12 @@
 import React from 'react'
 import PageHero from '../component/PageHero'
+import Header from '../layout/Header'
+import Footer from '../layout/Footer'
 
 const PrivacyPolicy = () => {
   return (
     <>
+      <Header />
       <PageHero title="Privacy Policy" />
       <section className="max-w-5xl mx-auto px-6 py-10">
         <div className="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl border border-orange-100">
@@ -99,6 +102,7 @@ const PrivacyPolicy = () => {
           </article>
         </div>
       </section>
+      <Footer />
     </>
   )
 }

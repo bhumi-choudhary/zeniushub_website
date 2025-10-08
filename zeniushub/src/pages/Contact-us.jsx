@@ -4,6 +4,8 @@ import { ICONS } from '../component/Icons';
 import Button from '../component/Button';
 import { z } from 'zod';
 import { toast } from 'react-toastify';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 
 const Contactus = () => {
   const schema = z.object({
@@ -66,6 +68,7 @@ const Contactus = () => {
 
   return (
     <>
+      <Header />
       <PageHero />
 
       <div className="bg-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8">
@@ -220,6 +223,7 @@ const Contactus = () => {
 
         </div>
       </div>
+      <Footer />
     </>
   );
 };
