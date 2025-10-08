@@ -11,24 +11,29 @@ import TechProcessCard from "../component/TechProcessCard";
 const Homepage = () => {
   const data = [
     {
-      date: "26 December 2019",
-      title: "Super Admin",
-      desc: "Shape the vision of your digital campus — oversee connections, ensure growth, and foster innovation across every department."
+      date: "Zeniushub ERP",
+      title: "Master Panel",
+      desc: "Define structure, permissions, and academic sessions. Keep every module aligned to your institution’s blueprint."
     },
     {
-      date: "02 January 2020",
-      title: "Admin",
-      desc: "Simplify daily operations with a seamless dashboard that keeps your institution organized, efficient, and future-ready."
+      date: "Zeniushub ERP",
+      title: "Admin Panel",
+      desc: "Run day‑to‑day operations with ease — admissions, fees, reports, and communication in one smart workspace."
     },
     {
-      date: "10 February 2020",
-      title: "Instructor",
-      desc: "Empower interactive teaching — design, share, and track engaging sessions that spark curiosity and learning success."
+      date: "Zeniushub ERP",
+      title: "Teacher Panel",
+      desc: "Plan lessons, record attendance, publish results, and engage every learner with meaningful insights."
     },
     {
-      date: "15 March 2020",
-      title: "Student",
-      desc: "A personalized gateway to learning — where progress, creativity, and collaboration come alive every day."
+      date: "Zeniushub ERP",
+      title: "Parent App",
+      desc: "Stay connected in real time — track fees, attendance, timetable, transport, and progress with full transparency."
+    },
+    {
+      date: "Zeniushub ERP",
+      title: "Student App",
+      desc: "A modern learning space — access classes, assignments, exams, and updates from anywhere."
     },
   ];
 

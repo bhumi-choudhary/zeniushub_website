@@ -53,18 +53,18 @@ const WhatWeDo = () => {
 
         <div id="services" className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { label:'Admissions', img:'/Img/services/admissions.png' },
-            { label:'Attendance', img:'/Img/services/attendance.png' },
-            { label:'Exams & Results', img:'/Img/services/exams.png' },
-            { label:'Fee Management', img:'/Img/services/fees.png' },
-            { label:'Timetable', img:'/Img/services/timetable.png' },
-            { label:'Transport', img:'/Img/services/transport.png' },
-            { label:'Hostel', img:'/Img/services/hostel.png' },
-            { label:'Library', img:'/Img/services/library.png' },
-            { label:'Communication', img:'/Img/services/communication.png' },
-            { label:'Parent App', img:'/Img/services/parent-app.png' },
-            { label:'Analytics & Reports', img:'/Img/services/analytics.png' },
-            { label:'Website & CMS', img:'/Img/services/cms.png' },
+            { label:'Admissions', img:'/Img/admission.jpg' },
+            { label:'Attendance', img:'/Img/attendance.jpg' },
+            { label:'Exams & Results', img:'/Img/Exam.jpg' },
+            { label:'Fee Management', img:'/Img/Fee-Management.jpg' },
+            { label:'Timetable', img:'/Img/Timetable.jpg' },
+            { label:'Transport', img:'/Img/Transport.jpg' },
+            { label:'Hostel', img:'/Img/Hostel.jpg' },
+            { label:'Library', img:'/Img/Libraries.jpg' },
+            { label:'Communication', img:'/Img/Communication.jpg' },
+            { label:'Parent App', img:'/Img/Parent-App.png' },
+            { label:'Analytics & Reports', img:'/Img/Analytics.jpg' },
+            { label:'Website & CMS', img:'/Img/Website-CMS.png' },
           ].map((item, i) => (
             <div
               key={item.label}
@@ -91,15 +91,14 @@ const WhatWeDo = () => {
         <h3 className="text-xl md:text-2xl font-extrabold text-[#ff6a21] mb-4">Core ERP Modules</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((m, i) => (
-            <div key={m.title} className={`rounded-2xl bg-white shadow border border-orange-100 p-6 reveal reveal-delay-${(i%4)+1} hover:shadow-xl hover:-translate-y-1 transition-all`}>
-              <h3 className="font-semibold text-gray-900">{m.title}</h3>
+            <div key={m.title} className={`group rounded-2xl bg-white shadow border border-orange-100 p-6 reveal reveal-delay-${(i%4)+1} hover:shadow-xl hover:-translate-y-1 transition-all`}>
+              <h3 className="font-semibold text-gray-900 transition-colors duration-300 group-hover:text-[#ff6a21]">{m.title}</h3>
               <p className="mt-2 text-sm text-gray-600">{m.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* (removed duplicate Platform Highlights) */}
     </>
   )
 }

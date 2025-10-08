@@ -11,22 +11,22 @@ const WhoWeAre = () => {
     {
       icon:  <ICONS.shield  />,
       title: "Secure by design",
-      desc: "Role-based access, encryption and backups."
+      desc: "Role‑based access for Master/Admin/Teacher/Parent, 2FA‑ready, encryption at rest & in transit, daily automated backups with easy restore points."
     },
     {
       icon: <ICONS.barchart3  />,
       title: "Analytics-first",
-      desc: "Dashboards and insights for action."
+      desc: "Live dashboards for admissions, fees, attendance and exams; role‑aware KPIs, trends and cohort analysis with CSV/PDF export."
     },
     {
       icon: <ICONS.hearthandshake  />,
       title: "Human UX",
-      desc: "Clean flows for teachers and parents."
+      desc: "Mobile‑first flows and a delightful Parent App: push notifications, one‑tap attendance & digital fee receipts; accessible typography and contrast."
     },
     {
       icon: <ICONS.Rocket  />,
       title: "Scalable Cloud",
-      desc: "Built to grow with your institution."
+      desc: "Auto‑scaling cloud with CDN, optimized for 10k+ users, zero‑downtime updates and performance tuned pages under real network conditions."
     },
   ];
   return (
@@ -95,14 +95,17 @@ const WhoWeAre = () => {
             <h3 className="text-2xl md:text-3xl font-extrabold text-[#ff6a21]">Experience in Education</h3>
             <p className="mt-3 text-gray-700">Our team brings hands‑on experience building school systems at scale. We focus on usability for teachers and measurable outcomes for management.</p>
             <p className="mt-3 text-gray-700">From data migration to training, we ensure a smooth rollout and continuous improvements based on feedback.</p>
-            <div className="mt-6 grid grid-cols-2 gap-8">
-              {[{p:80,label:'Faster Operations'},{p:70,label:'Parent Engagement'}].map((d,i)=> (
+            <div className="mt-6 grid grid-cols-2 md:grid-cols-2 gap-6">
+              {[ 
+                { p: 85, label: 'Admissions Automation', desc: 'Digital forms, approvals & waitlists' },
+                { p: 92, label: 'Parent App Adoption', desc: 'Active monthly users in 90 days' },
+              ].map((d,i)=> (
                 <div key={d.label} className={`reveal reveal-delay-${i+1}`}>
-                  <div className="w-28 h-28 rounded-full bg-[conic-gradient(#ff6a21_0deg,#ff6a21_${d.p*3.6}deg,#ffe1cf_${d.p*3.6}deg,#ffe1cf_360deg)] relative mx-auto">
-                    <div className="absolute inset-2 rounded-full bg-white flex items-center justify-center text-lg font-extrabold">{d.p}%</div>
+                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-[conic-gradient(#ff6a21_0deg,#ff6a21_${d.p*3.6}deg,#ffe1cf_${d.p*3.6}deg,#ffe1cf_360deg)] relative mx-auto">
+                    <div className="absolute inset-2 rounded-full bg-white flex items-center justify-center text-base md:text-lg font-extrabold text-[#ff6a21]">{d.p}%</div>
                   </div>
-                  <div className="mt-3 text-center font-semibold">{d.label}</div>
-                  <p className="text-xs text-gray-500 text-center mt-1">Estimated improvement based on recent deployments.</p>
+                  <div className="mt-2 text-center font-semibold">{d.label}</div>
+                  <p className="text-xs text-gray-500 text-center mt-0.5">{d.desc}</p>
                 </div>
               ))}
             </div>
@@ -142,18 +145,19 @@ const WhoWeAre = () => {
             <div className="rounded-2xl border border-orange-100 bg-white shadow-sm p-6">
               <h3 className="text-xl md:text-2xl font-extrabold text-gray-900">Our Vision</h3>
               <p className="mt-3 text-gray-700 leading-relaxed">
-                To be the most trusted digital‑school platform—known for beautiful design, robust
-                engineering and measurable outcomes for academic institutions.
+                To power every institution with a modern, secure and human‑friendly digital school
+                platform—delivering measurable learning outcomes, operational excellence and a
+                delightful experience for students, parents and educators.
               </p>
             </div>
 
             <div className="rounded-2xl border border-orange-100 bg-white shadow-sm p-6">
               <h3 className="text-xl md:text-2xl font-extrabold text-gray-900">Our Mission</h3>
               <ul className="mt-3 space-y-3 text-gray-700">
-                <li>• Help institutions launch unique, modern websites in a cost‑effective manner.</li>
-                <li>• Support every stage—from domain & hosting to content and parent communication.</li>
-                <li>• Ensure brand consistency, accessibility and performance across devices.</li>
-                <li>• Provide a smooth viewing experience with error‑free, updated and secure pages.</li>
+                <li>• Unite admissions, fees, attendance, exams, transport and communication in one platform.</li>
+                <li>• Deliver a delightful Parent App with real‑time updates, digital receipts and reminders.</li>
+                <li>• Equip leaders with actionable analytics and exportable reports for faster decisions.</li>
+                <li>• Keep data protected through encryption, backups and role‑based access control.</li>
               </ul>
             </div>
           </div>
