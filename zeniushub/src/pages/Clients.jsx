@@ -41,9 +41,9 @@ const Clients = () => {
         ].map((c, i) => (
           <div
             key={i}
-            className="rounded-2xl bg-white border border-[#ff6a21]/20 shadow-md hover:shadow-lg transition-all p-6 flex flex-col items-center justify-center min-h-[130px] sm:min-h-[150px]"
+            className="rounded-2xl bg-white border border-[#ff6a21]/20 shadow-md hover:shadow-lg transition-all p-4 flex flex-col items-center justify-center min-h-[130px] sm:min-h-[150px]"
           >
-            <div className="mb-2 h-12 w-12 rounded-xl bg-orange-50 flex items-center justify-center">
+            <div className=" h-12 w-12 rounded-xl bg-orange-50 flex items-center justify-center">
               <c.Icon className="text-[#ff6a21] text-xl sm:text-2xl" />
             </div>
             <div className="text-3xl sm:text-4xl font-extrabold text-[#ff6a21]">
@@ -55,7 +55,7 @@ const Clients = () => {
                 textColor="text-[#ff6a21]"
               />
             </div>
-            <div className="text-xs sm:text-sm font-semibold text-gray-700 mt-1">
+            <div className="text-xs sm:text-sm font-semibold text-gray-700">
               {c.t}
             </div>
           </div>
@@ -110,19 +110,19 @@ const Clients = () => {
                 text: "QR/biometric attendance with instant notifications and flexible timetables.",
               },
               {
-                img: "/Img/logos/demo4.jpg",
+                img: "/Img/Exam.jpg",
                 heading: "Exams & Results",
                 text: "Plan exams, publish report cards and share securely with parents.",
               },
               {
-                img: "/Img/logos/demo5.jpg",
+                img: "/Img/Parent-App.png",
                 heading: "Parent App & Communication",
-                text: "Broadcasts, circulars and two‑way updates keep everyone aligned.",
+                text: "Broadcasts, circulars and two-way updates keep everyone aligned.",
               },
               {
-                img: "/Img/logos/demo3.webp",
-                heading: "Multi‑branch Control",
-                text: "Central oversight for groups with branch‑wise permissions and audit.",
+                img: "/Img/Multi-branch.jpg",
+                heading: "Multi-branch Control",
+                text: "Central oversight for groups with branch-wise permissions and audit.",
               },
             ].map((client, index) => (
               <div
