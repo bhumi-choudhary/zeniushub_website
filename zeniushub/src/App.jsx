@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom"
 import Homepage from "./pages/Homepage";
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
 import WhatsAppFAB from "./component/WhatsAppFAB";
 import ScrollToTop from "./component/ScrollToTop";
 import GlobalLeadForm from "./component/GlobalLeadForm";
@@ -10,27 +8,22 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import RouteScrollToTop from "./component/RouteScrollToTop";
 import logo from "../public/Img/loderlogo.png"
-
 import useInternetStatus from "./hooks/useInternetStatus";
-
 import OurProcess from "./pages/Our-Process";
 import Clients from "./pages/Clients";
 import Contactus from "./pages/Contact-us";
 import PrivacyPolicy from "./pages/Privacy-Policy";
 import TermsCondition from "./pages/Terms-&-Condition";
-
 import About from "./pages/About-us-child/About-Us";
 import WhoWeAre from "./pages/About-us-child/Who-We-Are";
 import WhatWeDo from "./pages/About-us-child/What-We-Do";
 import WhyChooseUs from "./pages/About-us-child/Why-Choose-Us";
-
-import Talk from "./pages/Talk-To-Us";
-
 import HelpFeedback from "./pages/Help-Feedback";
 import NoDataFound from "./pages/404";
 import Pricing from "./pages/Pricing";
 import TalkToUs from "./pages/Talk-To-Us";
-import NoInternet from "./pages/nointernet";
+import NoInternet from "./pages/NoInternet";
+
 
 
 
